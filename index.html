@@ -155,6 +155,11 @@ footer a:hover{color:var(--t);}
   #concepto .concepto-img { order: 2 !important; }
   #concepto .concepto-txt { order: 1 !important; }
 }
+
+details summary::-webkit-details-marker { display:none; }
+details[open] summary span:last-child { color:var(--g); }
+details[open] { border-color:var(--t); }
+
 </style>
 </head>
 <body>
@@ -381,7 +386,7 @@ footer a:hover{color:var(--t);}
 
 <!-- CLUB -->
 <section id="club" style="background:var(--n);color:var(--c);">
-  <p class="sec-eyebrow">El Club de Correspondencia</p>
+  <p class="sec-eyebrow">El Club de Correspondencia Postal</p>
   <h2 style="color:var(--c);">Un museo no existe<br>sin sus visitantes</h2>
   <p class="sec-txt" style="color:#9A918A;">Un intercambio analógico entre coleccionistas. Flyers, recortes, piezas de arte… viajando por correo ordinario entre miembros.</p>
   <div class="club-layout">
@@ -408,6 +413,81 @@ footer a:hover{color:var(--t);}
   </div>
 </section>
 
+
+
+
+<div style="background:var(--co);padding:0 88px 64px;">
+  <details style="max-width:680px;border:1px solid #D4CEC4;background:var(--c);">
+    <summary style="padding:20px 28px;cursor:pointer;font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--n);list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;">
+      <span>✉️ 📮 &nbsp;¿Nunca has recibido o contestado una carta física?</span>
+      <span style="font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--t);font-weight:400;flex-shrink:0;margin-left:16px;">Léeme</span>
+    </summary>
+    <div style="padding:0 28px 32px;border-top:1px solid #D4CEC4;">
+
+      <p style="font-size:.88rem;color:var(--g);line-height:1.9;margin-top:20px;">Una carta física es una costumbre de otros siglos que sigue vigente y funcionando — aunque haya personas que ni siquiera conocen que existe o que está vigente hoy en día.</p>
+
+      
+      <p style="font-size:.88rem;color:var(--g);line-height:1.9;margin-top:16px;">Una carta es un mensaje o papel que metes dentro de un sobre. Puedes añadir también otros papeles, cartoncitos, recortes o cualquier cosa plana que quepa — eso es exactamente lo que hacemos en el club. Lo cierras, pegas un sello nuevo, escribes a quién va dirigida y lo depositas en un buzón de Correos — esos buzones amarillos que hay en la calle. Correos lo recoge, viaja en camión o avión, y unos días después alguien de Correos lo deposita en el buzón de la persona destinataria. Sin app, sin web, sin conexión. Cien por cien analógico.</p>
+
+      <p style="font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--n);margin-top:24px;margin-bottom:14px;">El sobre: parte delantera y trasera</p>
+
+      <!-- DIAGRAMA SOBRE - DOS CARAS -->
+      <div style="background:var(--co);border:1px solid #C4BEB4;padding:20px 24px;margin-bottom:18px;">
+
+        <p style="font-family:'Fraunces',serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t);margin-bottom:10px;">Parte delantera</p>
+        <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;display:block;margin-bottom:24px;">
+          <!-- Sobre limpio, sin líneas de doblez en la parte delantera -->
+          <rect x="10" y="10" width="400" height="190" rx="4" fill="#F5F0E8" stroke="#C4BEB4" stroke-width="1.5"/>
+
+          <!-- SELLO (arriba derecha) -->
+          <rect x="356" y="18" width="42" height="52" rx="2" fill="none" stroke="#C4614A" stroke-width="1.4"/>
+          <rect x="360" y="22" width="34" height="44" rx="1" fill="#C4614A" opacity=".12"/>
+          <text x="377" y="43" text-anchor="middle" font-family="serif" font-size="8" fill="#C4614A" font-weight="bold">SELLO</text>
+          <text x="377" y="56" text-anchor="middle" font-family="serif" font-size="7" fill="#9E4A38">aquí</text>
+          <text x="377" y="196" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#C4614A">↑ sello</text>
+
+          <!-- DESTINATARIO (centro) -->
+          <rect x="110" y="85" width="210" height="100" rx="2" fill="none" stroke="#9A918A" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="215" y="106" text-anchor="middle" font-family="serif" font-size="8.5" fill="#6E6860" font-style="italic">A quien va dirigida</text>
+          <text x="215" y="122" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9A918A">Nombre y apellidos</text>
+          <text x="215" y="135" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9A918A">Calle, número, piso</text>
+          <text x="215" y="148" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9A918A">28000 Ciudad</text>
+          <text x="215" y="161" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9A918A">España</text>
+          <text x="215" y="196" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#9A918A">↑ dirección de quien lo recibe</text>
+        </svg>
+
+        <p style="font-family:'Fraunces',serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t);margin-bottom:10px;">Parte trasera</p>
+        <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;display:block;">
+          <rect x="10" y="10" width="400" height="190" rx="4" fill="#F5F0E8" stroke="#C4BEB4" stroke-width="1.5"/>
+          <!-- Solapa triangular de cierre -->
+          <polygon points="10,10 410,10 210,105" fill="#EDE7D9" stroke="#C4BEB4" stroke-width="1.2"/>
+          <text x="215" y="58" text-anchor="middle" font-family="serif" font-size="8" fill="#9A918A" font-style="italic">solapa de cierre</text>
+
+          <!-- REMITE dentro del triángulo -->
+          <rect x="108" y="18" width="205" height="68" rx="2" fill="none" stroke="#C4614A" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="210" y="36" text-anchor="middle" font-family="serif" font-size="8.5" fill="#C4614A" font-style="italic">REMITE (tú)</text>
+          <text x="210" y="51" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9E4A38">Tu nombre y apellidos</text>
+          <text x="210" y="63" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9E4A38">Tu dirección completa</text>
+          <text x="215" y="196" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#C4614A">↑ tu dirección, por si la carta no llega</text>
+        </svg>
+      </div>
+
+      <p style="font-size:.86rem;color:var(--g);line-height:1.85;margin-bottom:12px;"><strong style="color:var(--n);">El remite</strong> es tu nombre y dirección en la parte de atrás, sobre la solapa de cierre. Si la carta no llega — porque la dirección está mal escrita o la persona se mudó — Correos te la devuelve a ti en vez de perderla.</p>
+
+      <p style="font-size:.86rem;color:var(--g);line-height:1.85;margin-bottom:12px;"><strong style="color:var(--n);">El sello</strong> va pegado en la esquina superior derecha de la parte delantera. Sin sello no viaja. Lo encuentras en cualquier estanco o en una oficina de Correos — pide "carta ordinaria nacional" para dentro de España, o "carta internacional" para fuera.</p>
+
+      <p style="font-size:.86rem;color:var(--t);line-height:1.85;margin-bottom:20px;font-style:italic;">Al unirte al club te regalamos un sello — escríbele a quien quieras: al museo, a otro miembro del club, o a alguien de tu vida a quien le quieras contar lo que estás coleccionando. Sin ningún compromiso.</p>
+
+      <p style="font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--n);margin-bottom:8px;">¿Cuánto tarda?</p>
+      <p style="font-size:.86rem;color:var(--g);line-height:1.85;margin-bottom:20px;">Dentro de España: entre 2 y 5 días normalmente. No hay notificación de entrega — simplemente llega un día. Esa incertidumbre es parte del encanto.</p>
+
+      <p style="font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--n);margin-bottom:8px;">Sobre el servicio de Correos</p>
+      <p style="font-size:.86rem;color:var(--g);line-height:1.9;">El servicio de correos existe en prácticamente todos los países del mundo. Es una red física — camiones, carteros, buzones, oficinas — que lleva objetos de un lugar a otro sin ninguna intervención digital. Como un minipaquete muy barato: como esas cartas que manda el banco, pero la manda una persona.</p>
+
+      <p style="font-size:.9rem;color:var(--t);font-style:italic;margin-top:20px;font-family:'Fraunces',serif;">La primera carta que recibes y mandas es de esas cosas que no se olvidan.</p>
+    </div>
+  </details>
+</div>
 <div class="div">Contacto</div>
 
 <!-- CONTACTO -->
