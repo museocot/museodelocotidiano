@@ -2,7 +2,20 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Un lugar donde los fragmentos del día a día encuentran su vitrina, su sala y su galería. Papeles, colores, texturas, formas que normalmente pasan desapercibidos.">
+  <meta property="og:title" content="Museo de lo Cotidiano">
+  <meta property="og:description" content="Un lugar donde los fragmentos del día a día encuentran su vitrina, su sala y su galería. Inicia tu propio museo.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://museocot.github.io/museodelocotidiano">
+  <meta property="og:image" content="https://museocot.github.io/museodelocotidiano/preview.jpg">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Museo de lo Cotidiano">
+  <meta name="twitter:description" content="Un lugar donde los fragmentos del día a día encuentran su vitrina, su sala y su galería.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjI4IiBoZWlnaHQ9IjI4IiByeD0iMiIgZmlsbD0iI0M0NjE0QSIvPgogIDxyZWN0IHg9IjUiIHk9IjUiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgcng9IjEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y1RjBFOCIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KICA8IS0tIHBlcmZvcmFjaW9uZXMgLS0+CiAgPGNpcmNsZSBjeD0iMiIgY3k9IjkiIHI9IjEuOCIgZmlsbD0iI0Y1RjBFOCIvPjxjaXJjbGUgY3g9IjIiIGN5PSIxNiIgcj0iMS44IiBmaWxsPSIjRjVGMEU4Ii8+PGNpcmNsZSBjeD0iMiIgY3k9IjIzIiByPSIxLjgiIGZpbGw9IiNGNUYwRTgiLz4KICA8Y2lyY2xlIGN4PSIzMCIgY3k9IjkiIHI9IjEuOCIgZmlsbD0iI0Y1RjBFOCIvPjxjaXJjbGUgY3g9IjMwIiBjeT0iMTYiIHI9IjEuOCIgZmlsbD0iI0Y1RjBFOCIvPjxjaXJjbGUgY3g9IjMwIiBjeT0iMjMiIHI9IjEuOCIgZmlsbD0iI0Y1RjBFOCIvPgogIDxjaXJjbGUgY3g9IjkiIGN5PSIyIiByPSIxLjgiIGZpbGw9IiNGNUYwRTgiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjIiIHI9IjEuOCIgZmlsbD0iI0Y1RjBFOCIvPjxjaXJjbGUgY3g9IjIzIiBjeT0iMiIgcj0iMS44IiBmaWxsPSIjRjVGMEU4Ii8+CiAgPGNpcmNsZSBjeD0iOSIgY3k9IjMwIiByPSIxLjgiIGZpbGw9IiNGNUYwRTgiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjMwIiByPSIxLjgiIGZpbGw9IiNGNUYwRTgiLz48Y2lyY2xlIGN4PSIyMyIgY3k9IjMwIiByPSIxLjgiIGZpbGw9IiNGNUYwRTgiLz4KICA8IS0tIE0gLS0+CiAgPHRleHQgeD0iMTYiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGNUYwRTgiPk08L3RleHQ+Cjwvc3ZnPg==">
+  <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjI4IiBoZWlnaHQ9IjI4IiByeD0iMiIgZmlsbD0iI0M0NjE0QSIvPgogIDxyZWN0IHg9IjUiIHk9IjUiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgcng9IjEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y1RjBFOCIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KICA8IS0tIHBlcmZvcmFjaW9uZXMgLS0+CiAgPGNpcmNsZSBjeD0iMiIgY3k9IjkiIHI9IjEuOCIgZmlsbD0iI0Y1RjBFOCIvPjxjaXJjbGUgY3g9IjIiIGN5PSIxNiIgcj0iMS44IiBmaWxsPSIjRjVGMEU4Ii8+PGNpcmNsZSBjeD0iMiIgY3k9IjIzIiByPSIxLjgiIGZpbGw9IiNGNUYwRTgiLz4KICA8Y2lyY2xlIGN4PSIzMCIgY3k9IjkiIHI9IjEuOCIgZmlsbD0iI0Y1RjBFOCIvPjxjaXJjbGUgY3g9IjMwIiBjeT0iMTYiIHI9IjEuOCIgZmlsbD0iI0Y1RjBFOCIvPjxjaXJjbGUgY3g9IjMwIiBjeT0iMjMiIHI9IjEuOCIgZmlsbD0iI0Y1RjBFOCIvPgogIDxjaXJjbGUgY3g9IjkiIGN5PSIyIiByPSIxLjgiIGZpbGw9IiNGNUYwRTgiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjIiIHI9IjEuOCIgZmlsbD0iI0Y1RjBFOCIvPjxjaXJjbGUgY3g9IjIzIiBjeT0iMiIgcj0iMS44IiBmaWxsPSIjRjVGMEU4Ii8+CiAgPGNpcmNsZSBjeD0iOSIgY3k9IjMwIiByPSIxLjgiIGZpbGw9IiNGNUYwRTgiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjMwIiByPSIxLjgiIGZpbGw9IiNGNUYwRTgiLz48Y2lyY2xlIGN4PSIyMyIgY3k9IjMwIiByPSIxLjgiIGZpbGw9IiNGNUYwRTgiLz4KICA8IS0tIE0gLS0+CiAgPHRleHQgeD0iMTYiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGNUYwRTgiPk08L3RleHQ+Cjwvc3ZnPg==">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Museo de lo Cotidiano</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
@@ -160,6 +173,44 @@ details summary::-webkit-details-marker { display:none; }
 details[open] summary span:last-child { color:var(--g); }
 details[open] { border-color:var(--t); }
 
+
+.form-msg{display:none;padding:12px 16px;font-size:.85rem;margin-top:8px;}
+.form-msg.ok{background:#E8F5E9;color:#2E7D32;border-left:3px solid #4CAF50;}
+.form-msg.err{background:#FFEBEE;color:#C62828;border-left:3px solid #EF5350;}
+
+
+.hamburger {
+  display:none; flex-direction:column; gap:5px; cursor:pointer;
+  background:none; border:none; padding:4px;
+}
+.hamburger span {
+  display:block; width:24px; height:2px;
+  background:var(--n); transition:all .3s;
+}
+.nav-mobile {
+  display:none; position:fixed; top:62px; left:0; right:0;
+  background:var(--c); border-bottom:1px solid #D4CEC4;
+  flex-direction:column; z-index:99;
+  padding:8px 0;
+}
+.nav-mobile.open { display:flex; }
+.nav-mobile a {
+  padding:14px 28px; font-size:.82rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--g); text-decoration:none;
+  border-bottom:1px solid #EDE7D9; transition:color .2s;
+}
+.nav-mobile a:last-child { border-bottom:none; }
+.nav-mobile a:hover { color:var(--t); }
+
+@media(max-width:900px){
+  .hamburger { display:flex; }
+  .nav-links { display:none; }
+}
+
+@media(max-width:900px){
+  .snail-wrap { padding:0 24px 48px !important; }
+  .snail-wrap details { max-width:100%; }
+}
 </style>
 </head>
 <body>
@@ -172,7 +223,16 @@ details[open] { border-color:var(--t); }
     <li><a href="#club">El Club</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
+  <button class="hamburger" onclick="document.getElementById('nav-mobile').classList.toggle('open')" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div id="nav-mobile" class="nav-mobile">
+  <a href="#concepto" onclick="document.getElementById('nav-mobile').classList.remove('open')">El Museo</a>
+  <a href="#tienda" onclick="document.getElementById('nav-mobile').classList.remove('open')">Tienda</a>
+  <a href="#club" onclick="document.getElementById('nav-mobile').classList.remove('open')">El Club</a>
+  <a href="#contacto" onclick="document.getElementById('nav-mobile').classList.remove('open')">Contacto</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -397,27 +457,27 @@ details[open] { border-color:var(--t); }
       <li><span class="ico">📖</span><span>Tu dirección se escribe a mano en la libreta personal de correspondencia del museo. No se comparte con nadie salvo con otros miembros del club, y únicamente de forma analógica. Sin fichero automatizado.</span></li>
       <li><span class="ico">🎟️</span><span>Completamente gratuito. Solo necesitas ganas de mirar lo cotidiano con otros ojos.</span></li>
     </ul>
-    <div class="club-form">
+    <form id="form-club" class="club-form" onsubmit="event.preventDefault();sendForm('form-club','msg-club')">
+      <input type="hidden" name="access_key" value="01a4b244-27c8-4ae9-b31d-7d05cd033c6b">
+      <input type="hidden" name="subject" value="Solicitud Club de Correspondencia Postal">
       <h3>Solicitar entrada al Club</h3>
-      <input type="text" placeholder="Tu nombre" id="nom">
-      <input type="text" placeholder="Dirección postal completa" id="dir">
-      <input type="text" placeholder="Ciudad y país" id="ciu">
-      <input type="email" placeholder="Email (opcional)" id="mail">
+      <input type="text" name="nombre" placeholder="Tu nombre">
+      <input type="text" name="direccion" placeholder="Dirección postal completa">
+      <input type="text" name="ciudad" placeholder="Ciudad y país">
+      <input type="email" name="email" placeholder="Email (opcional)">
       <p class="campo-opt">Si quieres que te avisemos cuando salga tu carta de bienvenida, déjanos tu email.</p>
-      <textarea placeholder="Cuéntanos algo sobre tu museo (opcional)" rows="3" id="msg"></textarea>
-      <a href="mailto:museodelocotidiano@outlook.com" class="btn-club"
-         onclick="var n=document.getElementById('nom').value,d=document.getElementById('dir').value,c=document.getElementById('ciu').value,e=document.getElementById('mail').value,m=document.getElementById('msg').value;this.href='mailto:museodelocotidiano@outlook.com?subject=Solicitud%20Club%20de%20Correspondencia&body=Nombre%3A%20'+encodeURIComponent(n)+'%0ADirecci%C3%B3n%3A%20'+encodeURIComponent(d)+'%0ACiudad%3A%20'+encodeURIComponent(c)+'%0AEmail%3A%20'+encodeURIComponent(e||'(no facilitado)')+'%0A%0AMensaje%3A%20'+encodeURIComponent(m);">
-        Enviar solicitud
-      </a>
+      <textarea name="mensaje" placeholder="Cuéntanos algo sobre tu museo (opcional)" rows="3"></textarea>
+      <button type="submit" class="btn-club" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;">Enviar solicitud</button>
+      <div id="msg-club" class="form-msg" style="background:#E8F5E9;"></div>
       <p class="club-nota">Tu dirección postal se escribirá a mano en la libreta de correspondencia del museo. Solo se compartirá con otros miembros del club, de forma analógica. Sin fichero automatizado.</p>
-    </div>
+    </form>
   </div>
 </section>
 
 
 
 
-<div style="background:var(--co);padding:0 88px 64px;">
+<div style="background:var(--co);padding:0 88px 64px;" class="snail-wrap">
   <details style="max-width:680px;border:1px solid #D4CEC4;background:var(--c);">
     <summary style="padding:20px 28px;cursor:pointer;font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--n);list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;">
       <span>✉️ 📮 &nbsp;¿Nunca has recibido o contestado una carta física?</span>
@@ -496,26 +556,55 @@ details[open] { border-color:var(--t); }
   <p class="sec-eyebrow">Contacto</p>
   <h2>¿Tienes alguna pregunta?</h2>
   <p class="sec-txt">Escríbenos para cualquier consulta sobre el libro, el club o lo que necesites.</p>
-  <div class="contact-form">
-    <input type="text" id="c-nom" placeholder="Tu nombre">
-    <input type="email" id="c-mail" placeholder="Tu email">
+  <form id="form-contacto" class="contact-form" onsubmit="event.preventDefault();sendForm('form-contacto','msg-contacto')">
+    <input type="hidden" name="access_key" value="01a4b244-27c8-4ae9-b31d-7d05cd033c6b">
+    <input type="hidden" name="subject" value="Consulta — Museo de lo Cotidiano">
+    <input type="text" name="nombre" placeholder="Tu nombre">
+    <input type="email" name="email" placeholder="Tu email">
     <p style="font-size:.78rem;color:var(--g);margin-top:-6px;">Si quieres que te respondamos, déjanos tu email.</p>
-    <textarea id="c-msg" rows="4" placeholder="Tu mensaje"></textarea>
-    <a href="mailto:museodelocotidiano@outlook.com"
-       class="btn"
-       style="width:fit-content;"
-       onclick="var n=document.getElementById('c-nom').value,e=document.getElementById('c-mail').value,m=document.getElementById('c-msg').value;this.href='mailto:museodelocotidiano@outlook.com?subject=Consulta%20Museo%20de%20lo%20Cotidiano&body=Nombre%3A%20'+encodeURIComponent(n)+'%0AEmail%3A%20'+encodeURIComponent(e||'(no facilitado)')+'%0A%0AMensaje%3A%0A'+encodeURIComponent(m);">
-      Enviar mensaje
-    </a>
-  </div>
+    <textarea name="mensaje" rows="4" placeholder="Tu mensaje"></textarea>
+    <button type="submit" class="btn" style="width:fit-content;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;">Enviar mensaje</button>
+    <div id="msg-contacto" class="form-msg"></div>
+  </form>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <span class="footer-logo">Museo de lo Cotidiano</span>
+  <div style="display:flex;gap:20px;align-items:center;">
+    <a href="https://www.instagram.com/museo_de_lo_cotidiano" target="_blank" rel="noopener" title="Instagram" style="color:#A09890;transition:color .2s;" onmouseover="this.style.color='#C4614A'" onmouseout="this.style.color='#A09890'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://www.tiktok.com/@museo_de_lo_cotidiano" target="_blank" rel="noopener" title="TikTok" style="color:#A09890;transition:color .2s;" onmouseover="this.style.color='#C4614A'" onmouseout="this.style.color='#A09890'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg></a>
+    <a href="https://www.facebook.com/elmuseodelocotidiano" target="_blank" rel="noopener" title="Facebook" style="color:#A09890;transition:color .2s;" onmouseover="this.style.color='#C4614A'" onmouseout="this.style.color='#A09890'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+  </div>
   <span>Esta web contiene enlaces de afiliado de Amazon. Si compras a través de ellos recibimos una pequeña comisión sin coste adicional para ti.</span>
   <a href="mailto:museodelocotidiano@outlook.com">museodelocotidiano@outlook.com</a>
 </footer>
+
+
+<script>
+async function sendForm(formId, msgId) {
+  const form = document.getElementById(formId);
+  const msg = document.getElementById(msgId);
+  const data = new FormData(form);
+  msg.style.display = 'none';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {method:'POST', body:data});
+    const json = await res.json();
+    if(json.success) {
+      msg.className = 'form-msg ok';
+      msg.textContent = '¡Mensaje enviado! Te responderemos pronto.';
+      form.reset();
+    } else {
+      msg.className = 'form-msg err';
+      msg.textContent = 'Algo salió mal. Inténtalo de nuevo.';
+    }
+  } catch(e) {
+    msg.className = 'form-msg err';
+    msg.textContent = 'Error de conexión. Inténtalo de nuevo.';
+  }
+  msg.style.display = 'block';
+}
+</script>
 
 </body>
 </html>
