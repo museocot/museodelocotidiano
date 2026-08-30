@@ -339,6 +339,7 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
 .club-bloque p:first-child{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;margin-bottom:8px;}
 .club-bloque p:last-child{font-size:.9rem;line-height:1.75;color:var(--g);margin:0;}
 .club-cierre{font-family:'Fraunces',serif;font-size:1rem;letter-spacing:.04em;color:var(--t);margin-top:26px;}
+.club-cierre span{display:block;font-family:'DM Sans',sans-serif;font-size:.86rem;letter-spacing:0;color:var(--g);margin-top:6px;}
 @media(min-width:901px){.club-bloques{grid-template-columns:1fr 1fr;gap:24px;}}
 #club .club-form{background:#FFFFFF;border:1px solid #E0D9CD;}
 #club .beneficios li{color:var(--g);}
@@ -498,7 +499,7 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
     <div class="producto">
       <div class="prod-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="10" y1="8" x2="16" y2="8"/><line x1="10" y1="12" x2="14" y2="12"/></svg></div>
       <p class="prod-nom">Museo de lo Cotidiano — El libro</p>
-      <p class="prod-desc">El libro interactivo. Galerías, salas y vitrinas: un recorrido completo por lo cotidiano. 92 páginas.</p>
+      <p class="prod-desc">El libro interactivo. Galerías, salas y vitrinas: un recorrido completo por lo cotidiano.</p>
       <a href="https://amzn.to/4yfrbul" class="btn" target="_blank" rel="noopener">Comprar el libro</a>
     </div>
     <div class="producto">
@@ -527,25 +528,22 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
 
   <div class="club-layout">
     <div>
+      <p class="club-subhead" style="font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--n);margin-bottom:16px;">Al entrar al Club</p>
       <div class="club-bloques">
         <div class="club-bloque">
-          <p>Una carta de bienvenida manuscrita</p>
-          <p>Con algunas piezas de arte cotidiano y un sello de Correos para tu primer envío. <span style="font-size:.9em;">(Sello válido para envíos desde España.)</span></p>
+          <p>✉ Carta de bienvenida</p>
+          <p>Recibes una carta manuscrita del Museo, algunas piezas de arte cotidiano y un sello para tu primer envío.</p>
         </div>
         <div class="club-bloque">
-          <p>Una o dos direcciones para empezar</p>
-          <p>En esa primera carta recibirás 1 o 2 direcciones de otros miembros que también quieren intercambiar cartas. Tú decides a quién escribir.</p>
+          <p>📮 Para empezar a intercambiar</p>
+          <p>En esa primera carta recibirás dos direcciones de otros miembros que también quieren intercambiar cartas. Tú decides si quieres escribir y a quién.</p>
         </div>
         <div class="club-bloque">
-          <p>Un intercambio por correo postal</p>
-          <p>Las direcciones se gestionan desde la libreta física del Museo y el intercambio sucede por carta.</p>
-        </div>
-        <div class="club-bloque">
-          <p>Entrada 100 % gratuita</p>
-          <p>No cuesta nada formar parte del Club.</p>
+          <p>📖 La libreta del Museo</p>
+          <p>Tu dirección queda apuntada a mano en la libreta física de correspondencia del Museo. No hay listados ni ficheros automatizados.</p>
         </div>
       </div>
-      <p class="club-cierre">100 % analógico. De buzón a buzón.</p>
+      <p class="club-cierre">100 % analógico. 100 % gratuito.<span>No cuesta nada entrar. Y todo el intercambio sucede por correo postal.</span></p>
     </div>
 <form id="form-club" class="club-form" onsubmit="event.preventDefault();sendForm('form-club','msg-club')">
       <input type="hidden" name="access_key" value="01a4b244-27c8-4ae9-b31d-7d05cd033c6b">
@@ -554,8 +552,6 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
       <input type="text" name="nombre" placeholder="Tu nombre">
       <input type="text" name="direccion" placeholder="Dirección postal completa">
       <input type="text" name="ciudad" placeholder="Ciudad y país">
-      <input type="email" name="email" placeholder="Email (opcional)">
-      <p class="campo-opt">Si quieres que te avisemos cuando salga tu carta de bienvenida, déjanos tu email.</p>
       <textarea name="mensaje" placeholder="Cuéntanos algo sobre tu museo (opcional)" rows="3"></textarea>
       <button type="submit" class="btn-club" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;">Enviar solicitud</button>
       <div id="msg-club" class="form-msg" style="background:#E8F5E9;"></div>
