@@ -344,6 +344,8 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
 @media(min-width:901px){
   .expo-invitacion{width:400px;}
 }
+.expo-invitacion.abierta{aspect-ratio:auto;align-items:stretch;}
+.expo-invitacion .museo-form-wrap{margin-top:22px;width:100%;box-sizing:border-box;}
 
 /* formulario inline enviar museo */
 .museo-label{display:flex;flex-direction:column;font-family:'Fraunces',serif;font-size:.95rem;font-weight:600;color:var(--n);}
@@ -521,10 +523,32 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
       <figure class="expo"><img src="images/comunidad/museo-seguidor-2.jpeg" alt="Sala de los Paisajes de un museo" loading="lazy"></figure>
       <figure class="expo"><img src="images/comunidad/museo-seguidor-3.jpeg" alt="Sala de los Retratos de un museo" loading="lazy"></figure>
       <figure class="expo"><img src="images/comunidad/museo-seguidor-4.jpeg" alt="Recorrido de un museo" loading="lazy"></figure>
-      <div class="expo expo-invitacion">
+      <div class="expo expo-invitacion" id="expo-invitacion">
         <p class="expo-inv-pregunta">¿Tienes tu propio Museo?</p>
         <p class="expo-inv-sub">Tu colección también puede formar parte de esta sala.</p>
         <button type="button" class="btn expo-inv-btn" onclick="toggleFormMuseo()">Enseñar mi Museo →</button>
+
+        <!-- Formulario inline: se despliega dentro de la propia tarjeta -->
+        <div id="form-museo-wrap" class="museo-form-wrap" style="display:none;">
+          <form id="form-museo" onsubmit="event.preventDefault();sendFormMuseo()">
+            <input type="hidden" name="access_key" value="01a4b244-27c8-4ae9-b31d-7d05cd033c6b">
+            <input type="hidden" name="subject" value="Envío de Museo (imagen)">
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <label class="museo-label">
+                <span>Imagen de tu Museo</span>
+                <input type="file" name="attachment" accept="image/jpeg,image/png,image/webp" required style="margin-top:8px;font-size:.88rem;color:var(--g);">
+                <span class="museo-hint">JPG, PNG o WebP · máx. 5 MB</span>
+              </label>
+              <label class="museo-label">
+                <span>¿Quieres contarnos algo sobre él? <span style="color:var(--g);font-weight:300;">(opcional)</span></span>
+                <textarea name="mensaje" rows="3" placeholder="Cuéntanos lo que quieras…" style="margin-top:8px;background:white;border:1px solid #D4CEC4;color:var(--n);font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:300;padding:12px 16px;outline:none;resize:none;transition:border-color .2s;"></textarea>
+              </label>
+              <button type="submit" class="btn" style="width:fit-content;">Enviar →</button>
+              <div id="msg-museo" class="form-msg"></div>
+              <p style="font-size:.74rem;color:var(--g);line-height:1.65;">También puedes enseñárnoslo o escribirnos por DM en nuestras redes.</p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     <div class="carrusel-nav" aria-hidden="true">
@@ -533,27 +557,6 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
     </div>
   </div>
 
-  <!-- Formulario inline: se despliega al pulsar la tarjeta de invitación -->
-  <div id="form-museo-wrap" style="display:none;margin-top:40px;max-width:560px;">
-    <form id="form-museo" onsubmit="event.preventDefault();sendFormMuseo()">
-      <input type="hidden" name="access_key" value="01a4b244-27c8-4ae9-b31d-7d05cd033c6b">
-      <input type="hidden" name="subject" value="Envío de Museo (imagen)">
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <label class="museo-label">
-          <span>Imagen de tu Museo</span>
-          <input type="file" name="attachment" accept="image/jpeg,image/png,image/webp" required style="margin-top:8px;font-size:.88rem;color:var(--g);">
-          <span class="museo-hint">JPG, PNG o WebP · máx. 5 MB</span>
-        </label>
-        <label class="museo-label">
-          <span>¿Quieres contarnos algo sobre él? <span style="color:var(--g);font-weight:300;">(opcional)</span></span>
-          <textarea name="mensaje" rows="3" placeholder="Cuéntanos lo que quieras…" style="margin-top:8px;background:white;border:1px solid #D4CEC4;color:var(--n);font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:300;padding:12px 16px;outline:none;resize:none;transition:border-color .2s;"></textarea>
-        </label>
-        <button type="submit" class="btn" style="width:fit-content;">Enviar →</button>
-        <div id="msg-museo" class="form-msg"></div>
-        <p style="font-size:.74rem;color:var(--g);line-height:1.65;">También puedes enseñárnoslo o escribirnos por DM en nuestras redes.</p>
-      </div>
-    </form>
-  </div>
 </section>
 
 <div class="div">La tienda del museo</div>
@@ -877,9 +880,11 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
 /* FORMULARIO ENVIAR MI MUSEO */
 function toggleFormMuseo() {
   var w = document.getElementById('form-museo-wrap');
+  var tarjeta = document.getElementById('expo-invitacion');
   if (!w) return;
   var open = w.style.display !== 'none';
   w.style.display = open ? 'none' : 'block';
+  if (tarjeta) tarjeta.classList.toggle('abierta', !open);
   if (!open) w.scrollIntoView({behavior:'smooth', block:'nearest'});
 }
 
