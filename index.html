@@ -256,10 +256,20 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
   .div-mid{color:#8C8278;}
 }
 
-/* En móvil el header lleva SOLO el isotipo + hamburguesa */
+/* En móvil: isotipo + nombre en 3 líneas */
 @media(max-width:900px){
-  .nav-logo .marca{display:none;}
-  .nav-logo .iso{width:42px;height:42px;}
+  .nav-logo .iso{width:36px;height:36px;flex-shrink:0;}
+  .nav-logo .marca{
+    display:flex;flex-direction:column;
+    font-size:.62rem;letter-spacing:.18em;line-height:1.5;
+    font-family:'Fraunces',serif;font-weight:600;color:var(--n);
+    white-space:nowrap;
+  }
+  .nav-logo .marca-txt{display:none;}
+  .nav-logo .marca-l1,.nav-logo .marca-l2,.nav-logo .marca-l3{display:block;}
+}
+@media(min-width:901px){
+  .nav-logo .marca-l1,.nav-logo .marca-l2,.nav-logo .marca-l3{display:none;}
 }
 /* por debajo de 600 px entra el recorte específico de móvil */
 @media(max-width:599px){
@@ -294,21 +304,50 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
 .expo img{width:100%;height:100%;object-fit:cover;display:block;}
 .expo figcaption{font-size:.78rem;letter-spacing:.06em;color:var(--g);padding-top:10px;}
 
-/* flechas: solo escritorio */
-.carrusel-nav{display:none;gap:10px;margin-top:6px;}
-.carrusel-nav button{
-  width:44px;height:44px;border:1px solid #C4BEB4;background:transparent;color:var(--g);
-  cursor:pointer;font-size:1rem;line-height:1;transition:border-color .2s,color .2s;
-}
-.carrusel-nav button:hover:not(:disabled){border-color:var(--t);color:var(--t);}
-.carrusel-nav button:disabled{opacity:.35;cursor:default;}
-
+/* flechas superpuestas: solo escritorio */
+.carrusel-nav{display:none;}/* oculto en móvil */
 @media(min-width:901px){
   .carrusel{gap:28px;}
-  .carrusel-nav{display:flex;}
+  .carrusel-wrap{position:relative;}
+  .carrusel-nav{display:block !important;position:static;pointer-events:none;}
+  .carrusel-nav button{
+    pointer-events:all;
+    position:absolute;top:38%;transform:translateY(-50%);
+    width:44px;height:44px;border-radius:50%;
+    border:1px solid rgba(196,190,180,.6);
+    background:rgba(245,240,232,.9);
+    color:var(--n);
+    cursor:pointer;font-size:1.15rem;line-height:1;
+    box-shadow:0 2px 8px rgba(42,36,32,.14);
+    transition:background .18s,box-shadow .18s;
+    z-index:10;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .carrusel-nav button:hover:not(:disabled){background:rgba(245,240,232,1);box-shadow:0 3px 14px rgba(42,36,32,.2);}
+  .carrusel-nav button:disabled{opacity:.28;cursor:default;}
+  .carrusel-nav button[data-dir="-1"]{left:10px;}
+  .carrusel-nav button[data-dir="1"]{right:10px;}
   .pagina{width:340px;}
   .expo{width:400px;}
 }
+
+/* tarjeta de invitación (última del carrusel de museos) */
+.expo-invitacion{
+  background:var(--c);border:1px solid #D4CEC4;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:32px 28px;gap:16px;aspect-ratio:4/5;
+  width:80%;max-width:460px;flex-shrink:0;
+}
+.expo-inv-pregunta{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;line-height:1.3;color:var(--n);}
+.expo-inv-sub{font-size:.92rem;line-height:1.7;color:var(--g);}
+.expo-inv-btn{margin-top:8px;width:fit-content;}
+@media(min-width:901px){
+  .expo-invitacion{width:400px;}
+}
+
+/* formulario inline enviar museo */
+.museo-label{display:flex;flex-direction:column;font-family:'Fraunces',serif;font-size:.95rem;font-weight:600;color:var(--n);}
+.museo-hint{font-family:'DM Sans',sans-serif;font-size:.74rem;color:var(--g);margin-top:4px;font-weight:300;}
 
 /* ============ LAS PÁGINAS ============ */
 .paginas-cierre{margin-top:56px;border-top:1px solid #C4BEB4;padding-top:40px;max-width:620px;}
@@ -317,13 +356,19 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
 .paginas-cierre .pregunta{font-family:'Fraunces',serif;font-size:1.2rem;font-style:italic;color:var(--n);margin:26px 0 22px;}
 
 /* ============ TIENDA ============ */
-.productos{display:grid;grid-template-columns:1fr;gap:2px;margin-top:40px;}
-.producto{background:#FFFFFF;border:1px solid #E0D9CD;padding:28px 26px;display:flex;flex-direction:column;gap:12px;}
+.productos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px;}
+.producto{background:#FFFFFF;border:1px solid #E0D9CD;padding:20px 18px;display:flex;flex-direction:column;gap:10px;}
 .producto .prod-ico{color:var(--t);}
-.producto .prod-nom{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;}
-.producto .prod-desc{font-size:.92rem;line-height:1.75;color:var(--g);flex:1;}
-.producto .btn{width:fit-content;margin-top:4px;}
-@media(min-width:901px){.productos{grid-template-columns:1fr 1fr;gap:24px;}}
+.producto .prod-nom{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;line-height:1.3;}
+.producto .prod-desc{font-size:.85rem;line-height:1.7;color:var(--g);flex:1;}
+.producto .prod-plat{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);}
+.producto .btn{width:fit-content;margin-top:4px;font-size:.75rem;padding:11px 18px;}
+@media(min-width:901px){.productos{grid-template-columns:1fr 1fr;gap:24px;}
+  .producto{padding:28px 26px;}
+  .producto .prod-nom{font-size:1.3rem;}
+  .producto .prod-desc{font-size:.92rem;}
+  .producto .btn{font-size:.82rem;padding:15px 36px;}
+}
 
 /* ============ CLUB EN CREMA ============ */
 #club{background:var(--co);color:var(--n);}
@@ -359,7 +404,7 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
 <nav>
   <a class="nav-logo" href="#" aria-label="Museo de lo Cotidiano — ir al inicio">
     <svg class="iso" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="isotipo-museo-titulo"><title id="isotipo-museo-titulo">Museo de lo Cotidiano</title><path d="M8.00,8.00 L18.00,8.00 A14.00,14.00 0 0 0 46.00,8.00 L66.00,8.00 A14.00,14.00 0 0 0 94.00,8.00 L114.00,8.00 A14.00,14.00 0 0 0 142.00,8.00 L162.00,8.00 A14.00,14.00 0 0 0 190.00,8.00 L210.00,8.00 A14.00,14.00 0 0 0 238.00,8.00 L258.00,8.00 A14.00,14.00 0 0 0 286.00,8.00 L306.00,8.00 A14.00,14.00 0 0 0 334.00,8.00 L354.00,8.00 A14.00,14.00 0 0 0 382.00,8.00 L392.00,8.00 L392.00,18.00 A14.00,14.00 0 0 0 392.00,46.00 L392.00,66.00 A14.00,14.00 0 0 0 392.00,94.00 L392.00,114.00 A14.00,14.00 0 0 0 392.00,142.00 L392.00,162.00 A14.00,14.00 0 0 0 392.00,190.00 L392.00,210.00 A14.00,14.00 0 0 0 392.00,238.00 L392.00,258.00 A14.00,14.00 0 0 0 392.00,286.00 L392.00,306.00 A14.00,14.00 0 0 0 392.00,334.00 L392.00,354.00 A14.00,14.00 0 0 0 392.00,382.00 L392.00,392.00 L382.00,392.00 A14.00,14.00 0 0 0 354.00,392.00 L334.00,392.00 A14.00,14.00 0 0 0 306.00,392.00 L286.00,392.00 A14.00,14.00 0 0 0 258.00,392.00 L238.00,392.00 A14.00,14.00 0 0 0 210.00,392.00 L190.00,392.00 A14.00,14.00 0 0 0 162.00,392.00 L142.00,392.00 A14.00,14.00 0 0 0 114.00,392.00 L94.00,392.00 A14.00,14.00 0 0 0 66.00,392.00 L46.00,392.00 A14.00,14.00 0 0 0 18.00,392.00 L8.00,392.00 L8.00,382.00 A14.00,14.00 0 0 0 8.00,354.00 L8.00,334.00 A14.00,14.00 0 0 0 8.00,306.00 L8.00,286.00 A14.00,14.00 0 0 0 8.00,258.00 L8.00,238.00 A14.00,14.00 0 0 0 8.00,210.00 L8.00,190.00 A14.00,14.00 0 0 0 8.00,162.00 L8.00,142.00 A14.00,14.00 0 0 0 8.00,114.00 L8.00,94.00 A14.00,14.00 0 0 0 8.00,66.00 L8.00,46.00 A14.00,14.00 0 0 0 8.00,18.00 L8.00,8.00 Z" fill="#C4614A"/><rect x="48" y="48" width="304" height="304" fill="#F5F0E8"/><rect x="60" y="60" width="280" height="280" fill="none" stroke="#C4614A" stroke-width="3"/><g fill="#C4614A"><rect x="197" y="48" width="6" height="28"/><rect x="197" y="324" width="6" height="28"/><rect x="48" y="197" width="28" height="6"/><rect x="324" y="197" width="28" height="6"/></g><path transform="translate(97.619,290.000) scale(0.128571,-0.128571)" d="M842.5970458984375 520.5906982421875 820.5972900390625 484.5914306640625 1141.20263671875 1368.400634765625Q1148.0025634765625 1388.4002685546875 1154.3024291992188 1394.2001342773438Q1160.602294921875 1400 1172.402099609375 1400H1508.394775390625Q1512.5947265625 1400 1514.9946899414062 1398.1000366210938Q1517.3946533203125 1396.2000732421875 1517.3946533203125 1393.60009765625Q1517.3946533203125 1390.8001708984375 1514.6947021484375 1389.0001831054688Q1511.9947509765625 1387.2001953125 1505.994873046875 1386.000244140625L1420.9930419921875 1372.800048828125Q1403.5933837890625 1370.0001220703125 1395.4935302734375 1356.7003784179688Q1387.3936767578125 1343.400634765625 1388.5936279296875 1321.60107421875L1477.59375 71.59912109375Q1479.59375 46.9996337890625 1485.7936401367188 38.5997314453125Q1491.9935302734375 30.1998291015625 1512.793212890625 26.39990234375L1592.9947509765625 13.999755859375Q1598.99462890625 13.3997802734375 1601.694580078125 11.7998046875Q1604.39453125 10.1998291015625 1604.39453125 6.39990234375Q1604.39453125 4.199951171875 1601.9945678710938 2.0999755859375Q1599.5946044921875 0 1595.3946533203125 0H1077.4017333984375Q1072.601806640625 0 1070.2018432617188 2.0999755859375Q1067.8018798828125 4.199951171875 1067.8018798828125 6.39990234375Q1067.8018798828125 10.1998291015625 1070.5018310546875 11.7998046875Q1073.2017822265625 13.3997802734375 1079.8016357421875 13.999755859375L1159.4031982421875 26.39990234375Q1181.0029296875 30.1998291015625 1189.3028564453125 39.7996826171875Q1197.602783203125 49.3995361328125 1196.40283203125 71.9990234375L1111.8026123046875 1262.802001953125L1128.40234375 1276.001220703125L729.0008544921875 137.60400390625Q723.6009521484375 121.6043701171875 718.9010620117188 117.20440673828125Q714.201171875 112.804443359375 710.001220703125 112.804443359375Q707.4012451171875 112.804443359375 704.4013061523438 115.10443115234375Q701.4013671875 117.4044189453125 698.4014282226562 122.8043212890625Q695.4014892578125 128.2042236328125 691.6015625 137.60400390625L253.0006103515625 1257.20166015625L267.0003662109375 1284.401123046875L186.000732421875 145.3975830078125Q183.2008056640625 103.598388671875 212.099853515625 73.4991455078125Q240.9989013671875 43.39990234375 290.1976318359375 29.600341796875L372.6014404296875 13.999755859375Q378.0013427734375 12.7998046875 380.20135498046875 11.1998291015625Q382.4013671875 9.599853515625 382.4013671875 6.39990234375Q382.4013671875 4.199951171875 380.60137939453125 2.0999755859375Q378.8013916015625 0 374.6014404296875 0H-3.3988037109375Q-7.5987548828125 0 -9.69873046875 2.0999755859375Q-11.7987060546875 4.199951171875 -11.7987060546875 6.39990234375Q-11.7987060546875 10.1998291015625 -8.5987548828125 11.59979248046875Q-5.3988037109375 12.999755859375 -1.3988037109375 13.999755859375L58.003662109375 28.80029296875Q102.6029052734375 42 132.7020263671875 72.19921875Q162.8011474609375 102.3984375 166.2010498046875 147.7974853515625L244.40087890625 1241.8038330078125Q250.000732421875 1303.201904296875 242.4007568359375 1335.6010131835938Q234.80078125 1368.0001220703125 209.0010986328125 1372L135.7999267578125 1382.800048828125Q125.1998291015625 1384.800048828125 120.0997314453125 1386.4000244140625Q114.9996337890625 1388 114.9996337890625 1392Q114.9996337890625 1400 130.1998291015625 1400H473.592041015625Q483.7919921875 1400 490.2918701171875 1394.60009765625Q496.791748046875 1389.2001953125 502.5916748046875 1373.600341796875Z" fill="#2A2420"/></svg>
-    <span class="marca">Museo de lo Cotidiano</span>
+    <span class="marca"><span class="marca-txt">Museo de lo Cotidiano</span><span class="marca-l1">MUSEO</span><span class="marca-l2">DE LO</span><span class="marca-l3">COTIDIANO</span></span>
   </a>
   <ul class="nav-links">
     <li><a href="#el-museo">El Museo</a></li>
@@ -472,19 +517,43 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
 
   <div class="carrusel-wrap">
     <div class="carrusel" id="car-museos" tabindex="0" role="group" aria-label="Otros museos: desliza para ver más">
-      <figure class="expo"><img src="images/comunidad/museo-seguidor-1.jpeg" alt="Sala de los Colores del museo de un seguidor" loading="lazy"><figcaption>Sala de los Colores</figcaption></figure>
-      <figure class="expo"><img src="images/comunidad/museo-seguidor-2.jpeg" alt="Sala de los Paisajes del museo de un seguidor" loading="lazy"><figcaption>Sala de los Paisajes</figcaption></figure>
-      <figure class="expo"><img src="images/comunidad/museo-seguidor-3.jpeg" alt="Sala de los Retratos del museo de un seguidor" loading="lazy"><figcaption>Sala de los Retratos</figcaption></figure>
-      <figure class="expo"><img src="images/comunidad/museo-seguidor-4.jpeg" alt="Recorrido del museo de un seguidor" loading="lazy"><figcaption>El recorrido</figcaption></figure>
+      <figure class="expo"><img src="images/comunidad/museo-seguidor-1.jpeg" alt="Sala de los Colores de un museo" loading="lazy"></figure>
+      <figure class="expo"><img src="images/comunidad/museo-seguidor-2.jpeg" alt="Sala de los Paisajes de un museo" loading="lazy"></figure>
+      <figure class="expo"><img src="images/comunidad/museo-seguidor-3.jpeg" alt="Sala de los Retratos de un museo" loading="lazy"></figure>
+      <figure class="expo"><img src="images/comunidad/museo-seguidor-4.jpeg" alt="Recorrido de un museo" loading="lazy"></figure>
+      <div class="expo expo-invitacion">
+        <p class="expo-inv-pregunta">¿Tienes tu propio Museo?</p>
+        <p class="expo-inv-sub">Tu colección también puede formar parte de esta sala.</p>
+        <button type="button" class="btn expo-inv-btn" onclick="toggleFormMuseo()">Enseñar mi Museo →</button>
+      </div>
     </div>
-  <div class="carrusel-nav" aria-hidden="true">
-    <button type="button" data-car="car-museos" data-dir="-1" aria-label="Otros museos: anterior">&#8592;</button>
-    <button type="button" data-car="car-museos" data-dir="1" aria-label="Otros museos: siguiente">&#8594;</button>
-  </div>
+    <div class="carrusel-nav" aria-hidden="true">
+      <button type="button" data-car="car-museos" data-dir="-1" aria-label="Otros museos: anterior">&#8592;</button>
+      <button type="button" data-car="car-museos" data-dir="1" aria-label="Otros museos: siguiente">&#8594;</button>
+    </div>
   </div>
 
-  <p class="sec-txt" style="margin-top:40px;">¿Tienes tu propio Museo? Tu colección también puede formar parte de esta sala.</p>
-  <a href="#contacto" class="btn">Enviar mi Museo</a>
+  <!-- Formulario inline: se despliega al pulsar la tarjeta de invitación -->
+  <div id="form-museo-wrap" style="display:none;margin-top:40px;max-width:560px;">
+    <form id="form-museo" onsubmit="event.preventDefault();sendFormMuseo()">
+      <input type="hidden" name="access_key" value="01a4b244-27c8-4ae9-b31d-7d05cd033c6b">
+      <input type="hidden" name="subject" value="Envío de Museo (imagen)">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <label class="museo-label">
+          <span>Imagen de tu Museo</span>
+          <input type="file" name="attachment" accept="image/jpeg,image/png,image/webp" required style="margin-top:8px;font-size:.88rem;color:var(--g);">
+          <span class="museo-hint">JPG, PNG o WebP · máx. 5 MB</span>
+        </label>
+        <label class="museo-label">
+          <span>¿Quieres contarnos algo sobre él? <span style="color:var(--g);font-weight:300;">(opcional)</span></span>
+          <textarea name="mensaje" rows="3" placeholder="Cuéntanos lo que quieras…" style="margin-top:8px;background:white;border:1px solid #D4CEC4;color:var(--n);font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:300;padding:12px 16px;outline:none;resize:none;transition:border-color .2s;"></textarea>
+        </label>
+        <button type="submit" class="btn" style="width:fit-content;">Enviar →</button>
+        <div id="msg-museo" class="form-msg"></div>
+        <p style="font-size:.74rem;color:var(--g);line-height:1.65;">También puedes enseñárnoslo o escribirnos por DM en nuestras redes.</p>
+      </div>
+    </form>
+  </div>
 </section>
 
 <div class="div">La tienda del museo</div>
@@ -498,15 +567,17 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
   <div class="productos">
     <div class="producto">
       <div class="prod-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="10" y1="8" x2="16" y2="8"/><line x1="10" y1="12" x2="14" y2="12"/></svg></div>
-      <p class="prod-nom">Museo de lo Cotidiano — El libro</p>
+      <p class="prod-nom">El libro</p>
       <p class="prod-desc">El libro interactivo. Galerías, salas y vitrinas: un recorrido completo por lo cotidiano.</p>
-      <a href="https://amzn.to/4yfrbul" class="btn" target="_blank" rel="noopener">Comprar el libro</a>
+      <p class="prod-plat">Amazon</p>
+      <a href="https://amzn.to/4yfrbul" class="btn" target="_blank" rel="noopener">Comprar en Amazon →</a>
     </div>
     <div class="producto">
       <div class="prod-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><rect x="6" y="6" width="12" height="12"/><circle cx="3" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="3" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="21" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="21" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="21" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="8" cy="3" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="3" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="3" r="1.2" fill="currentColor" stroke="none"/><circle cx="8" cy="21" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="21" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="21" r="1.2" fill="currentColor" stroke="none"/></svg></div>
       <p class="prod-nom">Troqueladora</p>
       <p class="prod-desc">Para dar forma a las piezas de la colección.</p>
-      <a href="https://amzn.to/4xsyajD" class="btn" target="_blank" rel="noopener">Comprar troqueladora</a>
+      <p class="prod-plat">Amazon</p>
+      <a href="https://amzn.to/4xsyajD" class="btn" target="_blank" rel="noopener">Comprar en Amazon →</a>
     </div>
   </div>
 
@@ -802,6 +873,48 @@ section[id], div[id], .ancla { scroll-margin-top:84px; }
     estado();
   });
 })();
+
+/* FORMULARIO ENVIAR MI MUSEO */
+function toggleFormMuseo() {
+  var w = document.getElementById('form-museo-wrap');
+  if (!w) return;
+  var open = w.style.display !== 'none';
+  w.style.display = open ? 'none' : 'block';
+  if (!open) w.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+async function sendFormMuseo() {
+  var form = document.getElementById('form-museo');
+  var msg = document.getElementById('msg-museo');
+  var fileInput = form.querySelector('input[type="file"]');
+  msg.style.display = 'none';
+
+  /* Validar tamaño: máx 5 MB */
+  if (fileInput.files[0] && fileInput.files[0].size > 5 * 1024 * 1024) {
+    msg.className = 'form-msg err';
+    msg.textContent = 'La imagen no debe superar 5 MB.';
+    msg.style.display = 'block';
+    return;
+  }
+
+  var data = new FormData(form);
+  try {
+    var res = await fetch('https://api.web3forms.com/submit', {method:'POST', body:data});
+    var json = await res.json();
+    if (json.success) {
+      msg.className = 'form-msg ok';
+      msg.textContent = '¡Enviado! Gracias por compartir tu Museo.';
+      form.reset();
+    } else {
+      msg.className = 'form-msg err';
+      msg.textContent = 'Algo salió mal. Inténtalo de nuevo.';
+    }
+  } catch(e) {
+    msg.className = 'form-msg err';
+    msg.textContent = 'Error de conexión. Inténtalo de nuevo.';
+  }
+  msg.style.display = 'block';
+}
 
 async function sendForm(formId, msgId) {
   const form = document.getElementById(formId);
