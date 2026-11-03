@@ -40,9 +40,14 @@ h1 em{font-style:italic;color:var(--t);}
 .sello{--r:6px;background:#fff;padding:calc(2*var(--r));
   -webkit-mask:radial-gradient(var(--r),#0000 97%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));
           mask:radial-gradient(var(--r),#0000 97%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));}
-.foto{aspect-ratio:1/1;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.foto img{width:100%;height:100%;object-fit:contain;display:block;}
-.foto.sin-foto img{width:38%;height:auto;opacity:.35;}
+.fotos{aspect-ratio:1/1;background:#fff;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:pointer;}
+.fotos::-webkit-scrollbar{display:none;}
+.fotos img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;display:block;scroll-snap-align:center;}
+.fotos img.sin-foto{object-fit:none;opacity:.35;}
+.puntos{display:flex;justify-content:center;gap:2px;margin-top:-4px;}
+.puntos button{width:20px;height:16px;border:0;background:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.puntos button::after{content:"";width:7px;height:7px;border-radius:50%;background:#C4BEB4;}
+.puntos button.on::after{background:var(--t);}
 .tienda{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--t);margin-top:6px;}
 .nombre{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;line-height:1.25;}
 .precio{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;color:var(--t);line-height:1.2;}
@@ -111,10 +116,12 @@ footer a:hover{color:var(--t);}
 
   <section class="vitrinas" aria-label="Troqueladoras">
 
-    <!-- ===== PIEZA: copiar este bloque <article> para añadir otra troqueladora ===== -->
+    <!-- ===== PIEZA: copiar este bloque <article> para añadir otro producto.
+         Fotos: una <img> por foto dentro de .fotos; los puntos se crean solos. ===== -->
     <article class="pieza">
-      <div class="sello"><div class="foto">
-        <img src="https://m.media-amazon.com/images/I/5191JIrksQL._SL500_.jpg" alt="Perforadora de sello Vaessen Creative de 3,8 cm" loading="lazy">
+      <div class="sello"><div class="fotos">
+        <img src="https://m.media-amazon.com/images/I/5191JIrksQL._SL500_.jpg" alt="Perforadora de sello Vaessen Creative" loading="lazy">
+        <img src="https://m.media-amazon.com/images/I/61lMJuHy0VL._SL500_.jpg" alt="Perforadora Vaessen Creative con una pieza recortada" loading="lazy">
       </div></div>
       <p class="tienda">Amazon · Vaessen Creative</p>
       <h2 class="nombre">Troqueladora de sello cuadrada</h2>
@@ -123,8 +130,9 @@ footer a:hover{color:var(--t);}
     </article>
 
     <article class="pieza">
-      <div class="sello"><div class="foto">
+      <div class="sello"><div class="fotos">
         <img src="https://img.kwcdn.com/product/fancy/5a368fec-dc54-4055-bd51-28b483470bd1.jpg" alt="Perforadora de sello cuadrada de 3,8 cm" loading="lazy">
+        <img src="https://img.kwcdn.com/product/fancy/0ec6276e-afbb-4c14-82ac-af97b75aa1ce.jpg" alt="Piezas recortadas con forma de sello" loading="lazy">
       </div></div>
       <p class="tienda">Temu · CYFUN Design</p>
       <h2 class="nombre">Troqueladora de sello cuadrada</h2>
@@ -148,12 +156,36 @@ footer a:hover{color:var(--t);}
 </footer>
 
 <script>
-/* Si una foto de tienda deja de cargar, se muestra el isotipo del Museo */
-document.querySelectorAll('.foto img').forEach(function(img){
-  img.addEventListener('error', function(){
-    img.parentNode.classList.add('sin-foto');
-    img.src = 'images/isotipo-museo.svg';
-  }, {once:true});
+/* Galería de cada pieza: deslizar, tocar la foto o los puntos */
+document.querySelectorAll('.fotos').forEach(function(g){
+  var imgs = g.querySelectorAll('img');
+  imgs.forEach(function(img){
+    /* Si una foto de tienda deja de cargar, se muestra el isotipo del Museo */
+    img.addEventListener('error', function(){
+      img.classList.add('sin-foto');
+      img.src = 'images/isotipo-museo.svg';
+    }, {once:true});
+  });
+  if (imgs.length < 2) return;
+  var puntos = document.createElement('div');
+  puntos.className = 'puntos';
+  imgs.forEach(function(_, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Foto ' + (i + 1));
+    b.addEventListener('click', function(){ ir(i); });
+    puntos.appendChild(b);
+  });
+  g.parentNode.after(puntos);
+  function actual(){ return Math.round(g.scrollLeft / g.clientWidth); }
+  function marcar(){
+    var n = actual();
+    puntos.querySelectorAll('button').forEach(function(b, i){ b.classList.toggle('on', i === n); });
+  }
+  function ir(i){ g.scrollTo({left: i * g.clientWidth, behavior: 'smooth'}); }
+  g.addEventListener('scroll', marcar, {passive:true});
+  g.addEventListener('click', function(){ ir((actual() + 1) % imgs.length); });
+  marcar();
 });
 </script>
 </body>
