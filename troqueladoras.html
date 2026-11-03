@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Troqueladoras · Museo de lo Cotidiano</title>
+<meta name="description" content="Las troqueladoras del Taller del Museo de lo Cotidiano: piezas de 3,8 cm a la medida de las vitrinas del libro.">
+<meta property="og:title" content="Troqueladoras · Museo de lo Cotidiano">
+<meta property="og:description" content="Las herramientas del Taller del Museo: piezas de 3,8 cm a la medida de las vitrinas del libro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://museocot.github.io/museodelocotidiano/troqueladoras.html">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" type="image/svg+xml" href="images/isotipo-museo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{--t:#C4614A;--td:#9E4A38;--tl:#D4816A;--c:#F5F0E8;--co:#EDE7D9;--cm:#E5DDD0;--g:#6E6860;--n:#2A2420;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--c);color:var(--n);font-family:'DM Sans',sans-serif;font-weight:300;font-size:17px;line-height:1.6;}
+a:focus-visible{outline:2px solid var(--t);outline-offset:3px;}
+
+/* CABECERA */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 52px;height:72px;border-bottom:1px solid #D4CEC4;}
+.marca{display:flex;align-items:center;gap:14px;font-family:'Fraunces',serif;font-size:.92rem;letter-spacing:.16em;text-transform:uppercase;color:var(--n);text-decoration:none;line-height:1;}
+.marca img{width:40px;height:40px;display:block;}
+.volver{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);text-decoration:none;white-space:nowrap;}
+.volver:hover{color:var(--t);}
+
+/* INTRO */
+.intro{padding:72px 88px 40px;max-width:900px;}
+.eyebrow{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--t);margin-bottom:16px;}
+h1{font-family:'Fraunces',serif;font-size:clamp(2.6rem,5vw,4rem);line-height:1.08;font-weight:600;margin-bottom:22px;}
+h1 em{font-style:italic;color:var(--t);}
+.sub{font-size:1.02rem;line-height:1.85;color:var(--g);max-width:560px;}
+
+/* RECUADROS */
+.vitrinas{padding:24px 88px 88px;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:28px;}
+.pieza{background:var(--co);display:flex;flex-direction:column;padding:28px 24px 26px;gap:14px;}
+.sello{--r:6px;background:#fff;padding:calc(2*var(--r));
+  -webkit-mask:radial-gradient(var(--r),#0000 97%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));
+          mask:radial-gradient(var(--r),#0000 97%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));}
+.foto{aspect-ratio:1/1;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.foto img{width:100%;height:100%;object-fit:contain;display:block;}
+.foto.sin-foto img{width:38%;height:auto;opacity:.35;}
+.tienda{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--t);margin-top:6px;}
+.nombre{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;line-height:1.25;}
+.precio{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;color:var(--t);line-height:1.2;}
+.precio small{display:block;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:300;color:var(--g);letter-spacing:.04em;margin-top:4px;}
+.datos{display:flex;flex-wrap:wrap;gap:6px;}
+.datos span{font-size:.72rem;letter-spacing:.06em;color:var(--g);border:1px solid #C4BEB4;padding:3px 9px;}
+.btn{margin-top:auto;display:block;text-align:center;background:var(--t);color:#fff;text-decoration:none;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;padding:14px 20px;font-weight:400;transition:background .2s;}
+.btn:hover{background:var(--td);}
+
+/* NOTA */
+.nota{margin:0 88px 72px;background:var(--co);border-left:3px solid var(--t);padding:24px 28px;max-width:720px;}
+.nota p:first-child{font-family:'Fraunces',serif;font-size:.95rem;font-weight:600;margin-bottom:8px;}
+.nota p:last-child{font-size:.88rem;line-height:1.75;color:var(--g);}
+.nota a{color:var(--t);}
+
+/* PIE */
+footer{background:var(--n);color:#8A7E76;padding:36px 88px;font-size:.74rem;letter-spacing:.04em;line-height:1.7;display:flex;flex-direction:column;gap:10px;}
+.pie-logo{font-family:'Fraunces',serif;font-size:1rem;letter-spacing:.15em;text-transform:uppercase;color:#A09890;}
+footer a{color:#A09890;}
+footer a:hover{color:var(--t);}
+
+@media(max-width:900px){
+  .top{padding:0 16px;}
+  .marca{font-size:.78rem;letter-spacing:.12em;gap:10px;}
+  .marca img{width:34px;height:34px;}
+  .intro{padding:44px 16px 24px;}
+  .vitrinas{padding:16px 16px 56px;gap:20px;}
+  .nota{margin:0 16px 56px;}
+  footer{padding:32px 16px;}
+}
+@media(max-width:420px){
+  .marca span{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="marca" href="./" aria-label="Museo de lo Cotidiano — ir a la web">
+    <img src="images/isotipo-museo.svg" alt="">
+    <span>Museo de lo Cotidiano</span>
+  </a>
+  <a class="volver" href="./">← Volver al Museo</a>
+</header>
+
+<main>
+  <section class="intro">
+    <p class="eyebrow">Taller del Museo</p>
+    <h1>Troqueladoras</h1>
+    <p class="sub">Las herramientas con las que cada pieza pasa de papel cualquiera a obra de la colección. Cortan a 3,8 cm, la medida de las vitrinas del libro.</p>
+  </section>
+
+  <section class="vitrinas" aria-label="Troqueladoras">
+
+    <!-- ===== PIEZA: copiar este bloque <article> para añadir otra troqueladora ===== -->
+    <article class="pieza">
+      <div class="sello"><div class="foto">
+        <img src="https://m.media-amazon.com/images/I/5191JIrksQL._SL500_.jpg" alt="Perforadora de sello Vaessen Creative de 3,8 cm" loading="lazy">
+      </div></div>
+      <p class="tienda">Amazon · Vaessen Creative</p>
+      <h2 class="nombre">Troqueladora de sello cuadrada</h2>
+      <div class="datos"><span>3,8 × 3,8 cm</span><span>Borde de sello</span><span>Papel 90–250 g</span></div>
+      <a class="btn" href="https://amzn.to/4xsyajD" target="_blank" rel="sponsored noopener">Ver precio en Amazon →</a>
+    </article>
+
+    <article class="pieza">
+      <div class="sello"><div class="foto">
+        <img src="https://img.kwcdn.com/product/fancy/5a368fec-dc54-4055-bd51-28b483470bd1.jpg" alt="Perforadora de sello de 3,8 cm, cuadrada o rectangular" loading="lazy">
+      </div></div>
+      <p class="tienda">Temu · CYFUN Design</p>
+      <h2 class="nombre">Troqueladora de sello rectangular o cuadrada</h2>
+      <div class="datos"><span>3,8 cm</span><span>Cuadrada o rectangular</span><span>Borde de sello</span></div>
+      <a class="btn" href="https://temu.to/k/eb1pp2li1u1" target="_blank" rel="sponsored noopener">Ver en Temu →</a>
+    </article>
+    <!-- ===== FIN PIEZAS ===== -->
+
+  </section>
+
+  <aside class="nota">
+    <p>📐 Sobre el tamaño</p>
+    <p>Las vitrinas del libro admiten piezas de hasta 3,81 cm. Pero tú diriges el museo: una pieza puede ocupar varias vitrinas o compartir una con otra. <a href="https://amzn.to/4yfrbul" target="_blank" rel="sponsored noopener">Ver el libro</a>.</p>
+  </aside>
+</main>
+
+<footer>
+  <span class="pie-logo">Museo de lo Cotidiano</span>
+  <span>Algunos enlaces son de afiliado: si compras a través de ellos, el Museo recibe una pequeña comisión sin coste para ti. Como Afiliado de Amazon, el Museo obtiene ingresos por las compras adscritas que cumplen los requisitos aplicables.</span>
+  <a href="./">museocot.github.io/museodelocotidiano</a>
+</footer>
+
+<script>
+/* Si una foto de tienda deja de cargar, se muestra el isotipo del Museo */
+document.querySelectorAll('.foto img').forEach(function(img){
+  img.addEventListener('error', function(){
+    img.parentNode.classList.add('sin-foto');
+    img.src = 'images/isotipo-museo.svg';
+  }, {once:true});
+});
+</script>
+</body>
+</html>
