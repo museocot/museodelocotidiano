@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+/* IDIOMA: si se eligió español a mano, vuelve a la versión en español */
+(function(){try{if(localStorage.getItem('museo-idioma')==='es')location.replace('/museodelocotidiano/troqueladoras.html');}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stamp punches · Museo de lo Cotidiano</title>
+<meta name="description" content="The stamp punches from the Museo de lo Cotidiano Workshop: 3.8 cm (1.5 in) pieces sized for the book’s display cases.">
+<meta property="og:title" content="Stamp punches · Museo de lo Cotidiano">
+<meta property="og:description" content="The Museum Workshop tools: 3.8 cm (1.5 in) pieces sized for the book’s display cases.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://museocot.github.io/museodelocotidiano/en/troqueladoras.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://museocot.github.io/museodelocotidiano/images/preview.jpg">
+<link rel="alternate" hreflang="es" href="https://museocot.github.io/museodelocotidiano/troqueladoras.html">
+<link rel="alternate" hreflang="en" href="https://museocot.github.io/museodelocotidiano/en/troqueladoras.html">
+<link rel="icon" type="image/svg+xml" href="/museodelocotidiano/images/isotipo-museo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{--t:#C4614A;--td:#9E4A38;--tl:#D4816A;--c:#F5F0E8;--co:#EDE7D9;--cm:#E5DDD0;--g:#6E6860;--n:#2A2420;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--c);color:var(--n);font-family:'DM Sans',sans-serif;font-weight:300;font-size:17px;line-height:1.6;}
+a:focus-visible{outline:2px solid var(--t);outline-offset:3px;}
+
+/* CABECERA */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 52px;height:72px;border-bottom:1px solid #D4CEC4;}
+.marca{display:flex;align-items:center;gap:14px;font-family:'Fraunces',serif;font-size:.92rem;letter-spacing:.16em;text-transform:uppercase;color:var(--n);text-decoration:none;line-height:1;}
+.marca img{width:40px;height:40px;display:block;}
+.volver{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);text-decoration:none;white-space:nowrap;}
+.volver:hover{color:var(--t);}
+.top-der{display:flex;align-items:center;gap:20px;}
+.idioma{font-size:.78rem;letter-spacing:.1em;color:var(--g);text-decoration:none;}
+.idioma:hover{color:var(--t);}
+
+/* INTRO */
+.intro{padding:72px 88px 40px;max-width:900px;}
+.eyebrow{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--t);margin-bottom:16px;}
+h1{font-family:'Fraunces',serif;font-size:clamp(2.6rem,5vw,4rem);line-height:1.08;font-weight:600;margin-bottom:22px;}
+h1 em{font-style:italic;color:var(--t);}
+.sub{font-size:1.02rem;line-height:1.85;color:var(--g);max-width:560px;}
+
+/* RECUADROS */
+.vitrinas{padding:24px 88px 88px;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:28px;}
+.pieza{background:var(--co);display:flex;flex-direction:column;padding:28px 24px 26px;gap:14px;}
+.sello{--r:6px;background:#fff;padding:calc(2*var(--r));
+  -webkit-mask:radial-gradient(var(--r),#0000 97%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));
+          mask:radial-gradient(var(--r),#0000 97%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));}
+.fotos{aspect-ratio:1/1;background:#fff;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:pointer;}
+.fotos::-webkit-scrollbar{display:none;}
+.fotos img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;display:block;scroll-snap-align:center;}
+.fotos img.sin-foto{object-fit:none;opacity:.35;}
+.puntos{display:flex;justify-content:center;gap:2px;margin-top:-4px;}
+.puntos button{width:20px;height:16px;border:0;background:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.puntos button::after{content:"";width:7px;height:7px;border-radius:50%;background:#C4BEB4;}
+.puntos button.on::after{background:var(--t);}
+.tienda{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--t);margin-top:6px;}
+.nombre{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;line-height:1.25;}
+.precio{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;color:var(--t);line-height:1.2;}
+.precio small{display:block;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:300;color:var(--g);letter-spacing:.04em;margin-top:4px;}
+.datos{display:flex;flex-wrap:wrap;gap:6px;}
+.datos span{font-size:.72rem;letter-spacing:.06em;color:var(--g);border:1px solid #C4BEB4;padding:3px 9px;}
+.btn{margin-top:auto;display:block;text-align:center;background:var(--t);color:#fff;text-decoration:none;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;padding:14px 20px;font-weight:400;transition:background .2s;}
+.btn:hover{background:var(--td);}
+
+/* NOTA */
+.nota{margin:0 88px 72px;background:var(--co);border-left:3px solid var(--t);padding:24px 28px;max-width:720px;}
+.nota p:first-child{font-family:'Fraunces',serif;font-size:.95rem;font-weight:600;margin-bottom:8px;}
+.nota p:last-child{font-size:.88rem;line-height:1.75;color:var(--g);}
+.nota a{color:var(--t);}
+
+/* PIE */
+footer{background:var(--n);color:#8A7E76;padding:36px 88px;font-size:.74rem;letter-spacing:.04em;line-height:1.7;display:flex;flex-direction:column;gap:10px;}
+.pie-logo{font-family:'Fraunces',serif;font-size:1rem;letter-spacing:.15em;text-transform:uppercase;color:#A09890;}
+footer a{color:#A09890;}
+footer a:hover{color:var(--t);}
+
+@media(max-width:900px){
+  .top{padding:0 16px;}
+  .marca{font-size:.78rem;letter-spacing:.12em;gap:10px;}
+  .marca img{width:34px;height:34px;}
+  .intro{padding:44px 16px 24px;}
+  .vitrinas{padding:16px 16px 56px;gap:20px;}
+  .nota{margin:0 16px 56px;}
+  footer{padding:32px 16px;}
+}
+@media(max-width:600px){
+  .intro{padding:28px 16px 16px;}
+  .eyebrow{margin-bottom:10px;}
+  h1{font-size:2.2rem;margin-bottom:12px;}
+  .sub{font-size:.92rem;line-height:1.65;}
+  .vitrinas{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:8px 16px 44px;}
+  .pieza{padding:12px 10px 12px;gap:8px;}
+  .sello{--r:4px;}
+  .tienda{font-size:.58rem;letter-spacing:.1em;margin-top:2px;}
+  .nombre{font-size:.98rem;line-height:1.2;}
+  .datos{gap:4px;}
+  .datos span{font-size:.6rem;letter-spacing:.02em;padding:2px 6px;}
+  .btn{font-size:.66rem;letter-spacing:.08em;padding:11px 6px;}
+}
+@media(max-width:420px){
+  .marca span{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="marca" href="./" aria-label="Museo de lo Cotidiano — back to the website">
+    <img src="/museodelocotidiano/images/isotipo-museo.svg" alt="">
+    <span>Museo de lo Cotidiano</span>
+  </a>
+  <div class="top-der">
+    <a class="idioma" href="/museodelocotidiano/troqueladoras.html" data-lang="es" lang="es" hreflang="es" title="Español">ES</a>
+    <a class="volver" href="./">← Back to the Museum</a>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <p class="eyebrow">The Museum Workshop</p>
+    <h1>Stamp punches</h1>
+    <p class="sub">The tools that turn any old paper into a piece of the collection. They cut at 3.8 cm (1.5 in), the size of the book’s display cases.</p>
+  </section>
+
+  <section class="vitrinas" aria-label="Stamp punches">
+
+    <!-- ===== PIEZA: copiar este bloque <article> para añadir otro producto.
+         Fotos: una <img> por foto dentro de .fotos; los puntos se crean solos. ===== -->
+    <article class="pieza">
+      <div class="sello"><div class="fotos">
+        <img src="https://m.media-amazon.com/images/I/5191JIrksQL._SL500_.jpg" alt="Vaessen Creative stamp punch" loading="lazy">
+        <img src="https://m.media-amazon.com/images/I/61lMJuHy0VL._SL500_.jpg" alt="Vaessen Creative punch with a cut-out piece" loading="lazy">
+      </div></div>
+      <p class="tienda">Amazon · Vaessen Creative</p>
+      <h2 class="nombre">Square stamp punch</h2>
+      <div class="datos"><span>3.8 × 3.8 cm (1.5 in)</span><span>Stamp edge</span><span>Paper 90–250 gsm</span></div>
+      <a class="btn" href="https://amzn.to/4xsyajD" target="_blank" rel="sponsored noopener">View on Amazon →</a>
+    </article>
+
+    <article class="pieza">
+      <div class="sello"><div class="fotos">
+        <img src="https://img.kwcdn.com/product/fancy/5a368fec-dc54-4055-bd51-28b483470bd1.jpg" alt="Square 3.8 cm stamp punch" loading="lazy">
+        <img src="https://img.kwcdn.com/product/fancy/0ec6276e-afbb-4c14-82ac-af97b75aa1ce.jpg" alt="Pieces cut out in stamp shapes" loading="lazy">
+      </div></div>
+      <p class="tienda">Temu · CYFUN Design</p>
+      <h2 class="nombre">Square stamp punch</h2>
+      <div class="datos"><span>3.8 × 3.8 cm (1.5 in)</span><span>Stamp edge</span><span>Choose the square option</span></div>
+      <a class="btn" href="https://temu.to/k/eb1pp2li1u1" target="_blank" rel="sponsored noopener">View on Temu →</a>
+    </article>
+    <!-- ===== FIN PIEZAS ===== -->
+
+  </section>
+
+  <aside class="nota">
+    <p>📐 About size</p>
+    <p>The book’s display cases fit pieces up to 3.81 cm (1.5 in). But you run the museum: a piece can take up several cases, or share one with another. <a href="https://www.amazon.com/dp/B0HKW1N6TM" target="_blank" rel="noopener">See the book</a>.</p>
+  </aside>
+</main>
+
+<footer>
+  <span class="pie-logo">Museo de lo Cotidiano</span>
+  <span>Some links are affiliate links: if you buy through them, the Museum earns a small commission at no extra cost to you. As an Amazon Associate, the Museum earns from qualifying purchases.</span>
+  <a href="./">museocot.github.io/museodelocotidiano</a>
+</footer>
+
+<script>
+/* IDIOMA: recordar la elección al pulsar ES / EN */
+document.querySelectorAll('[data-lang]').forEach(function(a){
+  a.addEventListener('click', function(){ try{ localStorage.setItem('museo-idioma', a.dataset.lang); }catch(e){} });
+});
+/* Galería de cada pieza: deslizar, tocar la foto o los puntos */
+document.querySelectorAll('.fotos').forEach(function(g){
+  var imgs = g.querySelectorAll('img');
+  imgs.forEach(function(img){
+    /* Si una foto de tienda deja de cargar, se muestra el isotipo del Museo */
+    img.addEventListener('error', function(){
+      img.classList.add('sin-foto');
+      img.src = '/museodelocotidiano/images/isotipo-museo.svg';
+    }, {once:true});
+  });
+  if (imgs.length < 2) return;
+  var puntos = document.createElement('div');
+  puntos.className = 'puntos';
+  imgs.forEach(function(_, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Photo ' + (i + 1));
+    b.addEventListener('click', function(){ ir(i); });
+    puntos.appendChild(b);
+  });
+  g.parentNode.after(puntos);
+  function actual(){ return Math.round(g.scrollLeft / g.clientWidth); }
+  function marcar(){
+    var n = actual();
+    puntos.querySelectorAll('button').forEach(function(b, i){ b.classList.toggle('on', i === n); });
+  }
+  function ir(i){ g.scrollTo({left: i * g.clientWidth, behavior: 'smooth'}); }
+  g.addEventListener('scroll', marcar, {passive:true});
+  g.addEventListener('click', function(){ ir((actual() + 1) % imgs.length); });
+  marcar();
+});
+</script>
+</body>
+</html>
