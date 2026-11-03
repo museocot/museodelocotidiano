@@ -2,6 +2,17 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<script>
+/* IDIOMA: igual que la web; si el navegador no usa español, va a la versión inglesa */
+(function(){try{
+  if(/bot|crawl|spider|slurp|facebookexternalhit|whatsapp/i.test(navigator.userAgent))return;
+  var p=null;try{p=localStorage.getItem('museo-idioma');}catch(e){}
+  if(p==='es')return;
+  var ls=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||'es'];
+  var es=false;for(var i=0;i<ls.length;i++){if(/^(es|ca|gl|eu)\b/i.test(ls[i])){es=true;break;}}
+  if(p==='en'||!es)location.replace('/museodelocotidiano/en/troqueladoras.html');
+}catch(e){}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Troqueladoras · Museo de lo Cotidiano</title>
 <meta name="description" content="Las troqueladoras del Taller del Museo de lo Cotidiano: piezas de 3,8 cm a la medida de las vitrinas del libro.">
@@ -10,6 +21,9 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://museocot.github.io/museodelocotidiano/troqueladoras.html">
 <meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://museocot.github.io/museodelocotidiano/images/preview.jpg">
+<link rel="alternate" hreflang="es" href="https://museocot.github.io/museodelocotidiano/troqueladoras.html">
+<link rel="alternate" hreflang="en" href="https://museocot.github.io/museodelocotidiano/en/troqueladoras.html">
 <link rel="icon" type="image/svg+xml" href="images/isotipo-museo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +40,9 @@ a:focus-visible{outline:2px solid var(--t);outline-offset:3px;}
 .marca img{width:40px;height:40px;display:block;}
 .volver{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);text-decoration:none;white-space:nowrap;}
 .volver:hover{color:var(--t);}
+.top-der{display:flex;align-items:center;gap:20px;}
+.idioma{font-size:.78rem;letter-spacing:.1em;color:var(--g);text-decoration:none;}
+.idioma:hover{color:var(--t);}
 
 /* INTRO */
 .intro{padding:72px 88px 40px;max-width:900px;}
@@ -104,7 +121,10 @@ footer a:hover{color:var(--t);}
     <img src="images/isotipo-museo.svg" alt="">
     <span>Museo de lo Cotidiano</span>
   </a>
-  <a class="volver" href="./">← Volver al Museo</a>
+  <div class="top-der">
+    <a class="idioma" href="/museodelocotidiano/en/troqueladoras.html" data-lang="en" lang="en" hreflang="en" title="English">EN</a>
+    <a class="volver" href="./">← Volver al Museo</a>
+  </div>
 </header>
 
 <main>
@@ -156,6 +176,10 @@ footer a:hover{color:var(--t);}
 </footer>
 
 <script>
+/* IDIOMA: recordar la elección al pulsar ES / EN */
+document.querySelectorAll('[data-lang]').forEach(function(a){
+  a.addEventListener('click', function(){ try{ localStorage.setItem('museo-idioma', a.dataset.lang); }catch(e){} });
+});
 /* Galería de cada pieza: deslizar, tocar la foto o los puntos */
 document.querySelectorAll('.fotos').forEach(function(g){
   var imgs = g.querySelectorAll('img');
