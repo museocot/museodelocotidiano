@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+/* IDIOMA: si se eligió español a mano, vuelve a la versión en español */
+(function(){try{if(localStorage.getItem('museo-idioma')==='es')location.replace('/museodelocotidiano/'+location.hash);}catch(e){}})();
+</script>
+
+  <meta name="description" content="A place where everyday fragments find their display case, their room and their gallery. Papers, colors, textures and shapes that usually go unnoticed.">
+  <meta property="og:title" content="Museum of the Everyday · Museo de lo Cotidiano">
+  <meta property="og:description" content="A place where everyday fragments find their display case, their room and their gallery. Start your own museum.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://museocot.github.io/museodelocotidiano/en/">
+  <meta property="og:image" content="https://museocot.github.io/museodelocotidiano/images/preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Museum of the Everyday · Museo de lo Cotidiano">
+  <meta name="twitter:description" content="A place where everyday fragments find their display case, their room and their gallery.">
+  <meta name="twitter:image" content="https://museocot.github.io/museodelocotidiano/images/preview.jpg">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIj48cGF0aCBkPSJNOC4wMCw4LjAwIEwxOC4wMCw4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCA0Ni4wMCw4LjAwIEw2Ni4wMCw4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCA5NC4wMCw4LjAwIEwxMTQuMDAsOC4wMCBBMTQuMDAsMTQuMDAgMCAwIDAgMTQyLjAwLDguMDAgTDE2Mi4wMCw4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAxOTAuMDAsOC4wMCBMMjEwLjAwLDguMDAgQTE0LjAwLDE0LjAwIDAgMCAwIDIzOC4wMCw4LjAwIEwyNTguMDAsOC4wMCBBMTQuMDAsMTQuMDAgMCAwIDAgMjg2LjAwLDguMDAgTDMwNi4wMCw4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzMzQuMDAsOC4wMCBMMzU0LjAwLDguMDAgQTE0LjAwLDE0LjAwIDAgMCAwIDM4Mi4wMCw4LjAwIEwzOTIuMDAsOC4wMCBMMzkyLjAwLDE4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsNDYuMDAgTDM5Mi4wMCw2Ni4wMCBBMTQuMDAsMTQuMDAgMCAwIDAgMzkyLjAwLDk0LjAwIEwzOTIuMDAsMTE0LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMTQyLjAwIEwzOTIuMDAsMTYyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMTkwLjAwIEwzOTIuMDAsMjEwLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMjM4LjAwIEwzOTIuMDAsMjU4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMjg2LjAwIEwzOTIuMDAsMzA2LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMzM0LjAwIEwzOTIuMDAsMzU0LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMzgyLjAwIEwzOTIuMDAsMzkyLjAwIEwzODIuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzNTQuMDAsMzkyLjAwIEwzMzQuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzMDYuMDAsMzkyLjAwIEwyODYuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAyNTguMDAsMzkyLjAwIEwyMzguMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAyMTAuMDAsMzkyLjAwIEwxOTAuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAxNjIuMDAsMzkyLjAwIEwxNDIuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAxMTQuMDAsMzkyLjAwIEw5NC4wMCwzOTIuMDAgQTE0LjAwLDE0LjAwIDAgMCAwIDY2LjAwLDM5Mi4wMCBMNDYuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAxOC4wMCwzOTIuMDAgTDguMDAsMzkyLjAwIEw4LjAwLDM4Mi4wMCBBMTQuMDAsMTQuMDAgMCAwIDAgOC4wMCwzNTQuMDAgTDguMDAsMzM0LjAwIEExNC4wMCwxNC4wMCAwIDAgMCA4LjAwLDMwNi4wMCBMOC4wMCwyODYuMDAgQTE0LjAwLDE0LjAwIDAgMCAwIDguMDAsMjU4LjAwIEw4LjAwLDIzOC4wMCBBMTQuMDAsMTQuMDAgMCAwIDAgOC4wMCwyMTAuMDAgTDguMDAsMTkwLjAwIEExNC4wMCwxNC4wMCAwIDAgMCA4LjAwLDE2Mi4wMCBMOC4wMCwxNDIuMDAgQTE0LjAwLDE0LjAwIDAgMCAwIDguMDAsMTE0LjAwIEw4LjAwLDk0LjAwIEExNC4wMCwxNC4wMCAwIDAgMCA4LjAwLDY2LjAwIEw4LjAwLDQ2LjAwIEExNC4wMCwxNC4wMCAwIDAgMCA4LjAwLDE4LjAwIEw4LjAwLDguMDAgWiIgZmlsbD0iI0M0NjE0QSIvPjxyZWN0IHg9IjQ4IiB5PSI0OCIgd2lkdGg9IjMwNCIgaGVpZ2h0PSIzMDQiIGZpbGw9IiNGNUYwRTgiLz48cmVjdCB4PSI2MCIgeT0iNjAiIHdpZHRoPSIyODAiIGhlaWdodD0iMjgwIiBmaWxsPSJub25lIiBzdHJva2U9IiNDNDYxNEEiIHN0cm9rZS13aWR0aD0iMyIvPjxnIGZpbGw9IiNDNDYxNEEiPjxyZWN0IHg9IjE5NyIgeT0iNDgiIHdpZHRoPSI2IiBoZWlnaHQ9IjI4Ii8+PHJlY3QgeD0iMTk3IiB5PSIzMjQiIHdpZHRoPSI2IiBoZWlnaHQ9IjI4Ii8+PHJlY3QgeD0iNDgiIHk9IjE5NyIgd2lkdGg9IjI4IiBoZWlnaHQ9IjYiLz48cmVjdCB4PSIzMjQiIHk9IjE5NyIgd2lkdGg9IjI4IiBoZWlnaHQ9IjYiLz48L2c+PHBhdGggdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTcuNjE5LDI5MC4wMDApIHNjYWxlKDAuMTI4NTcxLC0wLjEyODU3MSkiIGQ9Ik04NDIuNTk3MDQ1ODk4NDM3NSA1MjAuNTkwNjk4MjQyMTg3NSA4MjAuNTk3MjkwMDM5MDYyNSA0ODQuNTkxNDMwNjY0MDYyNSAxMTQxLjIwMjYzNjcxODc1IDEzNjguNDAwNjM0NzY1NjI1UTExNDguMDAyNTYzNDc2NTYyNSAxMzg4LjQwMDI2ODU1NDY4NzUgMTE1NC4zMDI0MjkxOTkyMTg4IDEzOTQuMjAwMTM0Mjc3MzQzOFExMTYwLjYwMjI5NDkyMTg3NSAxNDAwIDExNzIuNDAyMDk5NjA5Mzc1IDE0MDBIMTUwOC4zOTQ3NzUzOTA2MjVRMTUxMi41OTQ3MjY1NjI1IDE0MDAgMTUxNC45OTQ2ODk5NDE0MDYyIDEzOTguMTAwMDM2NjIxMDkzOFExNTE3LjM5NDY1MzMyMDMxMjUgMTM5Ni4yMDAwNzMyNDIxODc1IDE1MTcuMzk0NjUzMzIwMzEyNSAxMzkzLjYwMDA5NzY1NjI1UTE1MTcuMzk0NjUzMzIwMzEyNSAxMzkwLjgwMDE3MDg5ODQzNzUgMTUxNC42OTQ3MDIxNDg0Mzc1IDEzODkuMDAwMTgzMTA1NDY4OFExNTExLjk5NDc1MDk3NjU2MjUgMTM4Ny4yMDAxOTUzMTI1IDE1MDUuOTk0ODczMDQ2ODc1IDEzODYuMDAwMjQ0MTQwNjI1TDE0MjAuOTkzMDQxOTkyMTg3NSAxMzcyLjgwMDA0ODgyODEyNVExNDAzLjU5MzM4Mzc4OTA2MjUgMTM3MC4wMDAxMjIwNzAzMTI1IDEzOTUuNDkzNTMwMjczNDM3NSAxMzU2LjcwMDM3ODQxNzk2ODhRMTM4Ny4zOTM2NzY3NTc4MTI1IDEzNDMuNDAwNjM0NzY1NjI1IDEzODguNTkzNjI3OTI5Njg3NSAxMzIxLjYwMTA3NDIxODc1TDE0NzcuNTkzNzUgNzEuNTk5MTIxMDkzNzVRMTQ3OS41OTM3NSA0Ni45OTk2MzM3ODkwNjI1IDE0ODUuNzkzNjQwMTM2NzE4OCAzOC41OTk3MzE0NDUzMTI1UTE0OTEuOTkzNTMwMjczNDM3NSAzMC4xOTk4MjkxMDE1NjI1IDE1MTIuNzkzMjEyODkwNjI1IDI2LjM5OTkwMjM0Mzc1TDE1OTIuOTk0NzUwOTc2NTYyNSAxMy45OTk3NTU4NTkzNzVRMTU5OC45OTQ2Mjg5MDYyNSAxMy4zOTk3ODAyNzM0Mzc1IDE2MDEuNjk0NTgwMDc4MTI1IDExLjc5OTgwNDY4NzVRMTYwNC4zOTQ1MzEyNSAxMC4xOTk4MjkxMDE1NjI1IDE2MDQuMzk0NTMxMjUgNi4zOTk5MDIzNDM3NVExNjA0LjM5NDUzMTI1IDQuMTk5OTUxMTcxODc1IDE2MDEuOTk0NTY3ODcxMDkzOCAyLjA5OTk3NTU4NTkzNzVRMTU5OS41OTQ2MDQ0OTIxODc1IDAgMTU5NS4zOTQ2NTMzMjAzMTI1IDBIMTA3Ny40MDE3MzMzOTg0Mzc1UTEwNzIuNjAxODA2NjQwNjI1IDAgMTA3MC4yMDE4NDMyNjE3MTg4IDIuMDk5OTc1NTg1OTM3NVExMDY3LjgwMTg3OTg4MjgxMjUgNC4xOTk5NTExNzE4NzUgMTA2Ny44MDE4Nzk4ODI4MTI1IDYuMzk5OTAyMzQzNzVRMTA2Ny44MDE4Nzk4ODI4MTI1IDEwLjE5OTgyOTEwMTU2MjUgMTA3MC41MDE4MzEwNTQ2ODc1IDExLjc5OTgwNDY4NzVRMTA3My4yMDE3ODIyMjY1NjI1IDEzLjM5OTc4MDI3MzQzNzUgMTA3OS44MDE2MzU3NDIxODc1IDEzLjk5OTc1NTg1OTM3NUwxMTU5LjQwMzE5ODI0MjE4NzUgMjYuMzk5OTAyMzQzNzVRMTE4MS4wMDI5Mjk2ODc1IDMwLjE5OTgyOTEwMTU2MjUgMTE4OS4zMDI4NTY0NDUzMTI1IDM5Ljc5OTY4MjYxNzE4NzVRMTE5Ny42MDI3ODMyMDMxMjUgNDkuMzk5NTM2MTMyODEyNSAxMTk2LjQwMjgzMjAzMTI1IDcxLjk5OTAyMzQzNzVMMTExMS44MDI2MTIzMDQ2ODc1IDEyNjIuODAyMDAxOTUzMTI1TDExMjguNDAyMzQzNzUgMTI3Ni4wMDEyMjA3MDMxMjVMNzI5LjAwMDg1NDQ5MjE4NzUgMTM3LjYwNDAwMzkwNjI1UTcyMy42MDA5NTIxNDg0Mzc1IDEyMS42MDQzNzAxMTcxODc1IDcxOC45MDEwNjIwMTE3MTg4IDExNy4yMDQ0MDY3MzgyODEyNVE3MTQuMjAxMTcxODc1IDExMi44MDQ0NDMzNTkzNzUgNzEwLjAwMTIyMDcwMzEyNSAxMTIuODA0NDQzMzU5Mzc1UTcwNy40MDEyNDUxMTcxODc1IDExMi44MDQ0NDMzNTkzNzUgNzA0LjQwMTMwNjE1MjM0MzggMTE1LjEwNDQzMTE1MjM0Mzc1UTcwMS40MDEzNjcxODc1IDExNy40MDQ0MTg5NDUzMTI1IDY5OC40MDE0MjgyMjI2NTYyIDEyMi44MDQzMjEyODkwNjI1UTY5NS40MDE0ODkyNTc4MTI1IDEyOC4yMDQyMjM2MzI4MTI1IDY5MS42MDE1NjI1IDEzNy42MDQwMDM5MDYyNUwyNTMuMDAwNjEwMzUxNTYyNSAxMjU3LjIwMTY2MDE1NjI1TDI2Ny4wMDAzNjYyMTA5Mzc1IDEyODQuNDAxMTIzMDQ2ODc1TDE4Ni4wMDA3MzI0MjE4NzUgMTQ1LjM5NzU4MzAwNzgxMjVRMTgzLjIwMDgwNTY2NDA2MjUgMTAzLjU5ODM4ODY3MTg3NSAyMTIuMDk5ODUzNTE1NjI1IDczLjQ5OTE0NTUwNzgxMjVRMjQwLjk5ODkwMTM2NzE4NzUgNDMuMzk5OTAyMzQzNzUgMjkwLjE5NzYzMTgzNTkzNzUgMjkuNjAwMzQxNzk2ODc1TDM3Mi42MDE0NDA0Mjk2ODc1IDEzLjk5OTc1NTg1OTM3NVEzNzguMDAxMzQyNzczNDM3NSAxMi43OTk4MDQ2ODc1IDM4MC4yMDEzNTQ5ODA0Njg3NSAxMS4xOTk4MjkxMDE1NjI1UTM4Mi40MDEzNjcxODc1IDkuNTk5ODUzNTE1NjI1IDM4Mi40MDEzNjcxODc1IDYuMzk5OTAyMzQzNzVRMzgyLjQwMTM2NzE4NzUgNC4xOTk5NTExNzE4NzUgMzgwLjYwMTM3OTM5NDUzMTI1IDIuMDk5OTc1NTg1OTM3NVEzNzguODAxMzkxNjAxNTYyNSAwIDM3NC42MDE0NDA0Mjk2ODc1IDBILTMuMzk4ODAzNzEwOTM3NVEtNy41OTg3NTQ4ODI4MTI1IDAgLTkuNjk4NzMwNDY4NzUgMi4wOTk5NzU1ODU5Mzc1US0xMS43OTg3MDYwNTQ2ODc1IDQuMTk5OTUxMTcxODc1IC0xMS43OTg3MDYwNTQ2ODc1IDYuMzk5OTAyMzQzNzVRLTExLjc5ODcwNjA1NDY4NzUgMTAuMTk5ODI5MTAxNTYyNSAtOC41OTg3NTQ4ODI4MTI1IDExLjU5OTc5MjQ4MDQ2ODc1US01LjM5ODgwMzcxMDkzNzUgMTIuOTk5NzU1ODU5Mzc1IC0xLjM5ODgwMzcxMDkzNzUgMTMuOTk5NzU1ODU5Mzc1TDU4LjAwMzY2MjEwOTM3NSAyOC44MDAyOTI5Njg3NVExMDIuNjAyOTA1MjczNDM3NSA0MiAxMzIuNzAyMDI2MzY3MTg3NSA3Mi4xOTkyMTg3NVExNjIuODAxMTQ3NDYwOTM3NSAxMDIuMzk4NDM3NSAxNjYuMjAxMDQ5ODA0Njg3NSAxNDcuNzk3NDg1MzUxNTYyNUwyNDQuNDAwODc4OTA2MjUgMTI0MS44MDM4MzMwMDc4MTI1UTI1MC4wMDA3MzI0MjE4NzUgMTMwMy4yMDE5MDQyOTY4NzUgMjQyLjQwMDc1NjgzNTkzNzUgMTMzNS42MDEwMTMxODM1OTM4UTIzNC44MDA3ODEyNSAxMzY4LjAwMDEyMjA3MDMxMjUgMjA5LjAwMTA5ODYzMjgxMjUgMTM3MkwxMzUuNzk5OTI2NzU3ODEyNSAxMzgyLjgwMDA0ODgyODEyNVExMjUuMTk5ODI5MTAxNTYyNSAxMzg0LjgwMDA0ODgyODEyNSAxMjAuMDk5NzMxNDQ1MzEyNSAxMzg2LjQwMDAyNDQxNDA2MjVRMTE0Ljk5OTYzMzc4OTA2MjUgMTM4OCAxMTQuOTk5NjMzNzg5MDYyNSAxMzkyUTExNC45OTk2MzM3ODkwNjI1IDE0MDAgMTMwLjE5OTgyOTEwMTU2MjUgMTQwMEg0NzMuNTkyMDQxMDE1NjI1UTQ4My43OTE5OTIxODc1IDE0MDAgNDkwLjI5MTg3MDExNzE4NzUgMTM5NC42MDAwOTc2NTYyNVE0OTYuNzkxNzQ4MDQ2ODc1IDEzODkuMjAwMTk1MzEyNSA1MDIuNTkxNjc0ODA0Njg3NSAxMzczLjYwMDM0MTc5Njg3NVoiIGZpbGw9IiMyQTI0MjAiLz48L3N2Zz4=">
+  <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIj48cGF0aCBkPSJNOC4wMCw4LjAwIEwxOC4wMCw4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCA0Ni4wMCw4LjAwIEw2Ni4wMCw4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCA5NC4wMCw4LjAwIEwxMTQuMDAsOC4wMCBBMTQuMDAsMTQuMDAgMCAwIDAgMTQyLjAwLDguMDAgTDE2Mi4wMCw4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAxOTAuMDAsOC4wMCBMMjEwLjAwLDguMDAgQTE0LjAwLDE0LjAwIDAgMCAwIDIzOC4wMCw4LjAwIEwyNTguMDAsOC4wMCBBMTQuMDAsMTQuMDAgMCAwIDAgMjg2LjAwLDguMDAgTDMwNi4wMCw4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzMzQuMDAsOC4wMCBMMzU0LjAwLDguMDAgQTE0LjAwLDE0LjAwIDAgMCAwIDM4Mi4wMCw4LjAwIEwzOTIuMDAsOC4wMCBMMzkyLjAwLDE4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsNDYuMDAgTDM5Mi4wMCw2Ni4wMCBBMTQuMDAsMTQuMDAgMCAwIDAgMzkyLjAwLDk0LjAwIEwzOTIuMDAsMTE0LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMTQyLjAwIEwzOTIuMDAsMTYyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMTkwLjAwIEwzOTIuMDAsMjEwLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMjM4LjAwIEwzOTIuMDAsMjU4LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMjg2LjAwIEwzOTIuMDAsMzA2LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMzM0LjAwIEwzOTIuMDAsMzU0LjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzOTIuMDAsMzgyLjAwIEwzOTIuMDAsMzkyLjAwIEwzODIuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzNTQuMDAsMzkyLjAwIEwzMzQuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAzMDYuMDAsMzkyLjAwIEwyODYuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAyNTguMDAsMzkyLjAwIEwyMzguMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAyMTAuMDAsMzkyLjAwIEwxOTAuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAxNjIuMDAsMzkyLjAwIEwxNDIuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAxMTQuMDAsMzkyLjAwIEw5NC4wMCwzOTIuMDAgQTE0LjAwLDE0LjAwIDAgMCAwIDY2LjAwLDM5Mi4wMCBMNDYuMDAsMzkyLjAwIEExNC4wMCwxNC4wMCAwIDAgMCAxOC4wMCwzOTIuMDAgTDguMDAsMzkyLjAwIEw4LjAwLDM4Mi4wMCBBMTQuMDAsMTQuMDAgMCAwIDAgOC4wMCwzNTQuMDAgTDguMDAsMzM0LjAwIEExNC4wMCwxNC4wMCAwIDAgMCA4LjAwLDMwNi4wMCBMOC4wMCwyODYuMDAgQTE0LjAwLDE0LjAwIDAgMCAwIDguMDAsMjU4LjAwIEw4LjAwLDIzOC4wMCBBMTQuMDAsMTQuMDAgMCAwIDAgOC4wMCwyMTAuMDAgTDguMDAsMTkwLjAwIEExNC4wMCwxNC4wMCAwIDAgMCA4LjAwLDE2Mi4wMCBMOC4wMCwxNDIuMDAgQTE0LjAwLDE0LjAwIDAgMCAwIDguMDAsMTE0LjAwIEw4LjAwLDk0LjAwIEExNC4wMCwxNC4wMCAwIDAgMCA4LjAwLDY2LjAwIEw4LjAwLDQ2LjAwIEExNC4wMCwxNC4wMCAwIDAgMCA4LjAwLDE4LjAwIEw4LjAwLDguMDAgWiIgZmlsbD0iI0M0NjE0QSIvPjxyZWN0IHg9IjQ4IiB5PSI0OCIgd2lkdGg9IjMwNCIgaGVpZ2h0PSIzMDQiIGZpbGw9IiNGNUYwRTgiLz48cmVjdCB4PSI2MCIgeT0iNjAiIHdpZHRoPSIyODAiIGhlaWdodD0iMjgwIiBmaWxsPSJub25lIiBzdHJva2U9IiNDNDYxNEEiIHN0cm9rZS13aWR0aD0iMyIvPjxnIGZpbGw9IiNDNDYxNEEiPjxyZWN0IHg9IjE5NyIgeT0iNDgiIHdpZHRoPSI2IiBoZWlnaHQ9IjI4Ii8+PHJlY3QgeD0iMTk3IiB5PSIzMjQiIHdpZHRoPSI2IiBoZWlnaHQ9IjI4Ii8+PHJlY3QgeD0iNDgiIHk9IjE5NyIgd2lkdGg9IjI4IiBoZWlnaHQ9IjYiLz48cmVjdCB4PSIzMjQiIHk9IjE5NyIgd2lkdGg9IjI4IiBoZWlnaHQ9IjYiLz48L2c+PHBhdGggdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTcuNjE5LDI5MC4wMDApIHNjYWxlKDAuMTI4NTcxLC0wLjEyODU3MSkiIGQ9Ik04NDIuNTk3MDQ1ODk4NDM3NSA1MjAuNTkwNjk4MjQyMTg3NSA4MjAuNTk3MjkwMDM5MDYyNSA0ODQuNTkxNDMwNjY0MDYyNSAxMTQxLjIwMjYzNjcxODc1IDEzNjguNDAwNjM0NzY1NjI1UTExNDguMDAyNTYzNDc2NTYyNSAxMzg4LjQwMDI2ODU1NDY4NzUgMTE1NC4zMDI0MjkxOTkyMTg4IDEzOTQuMjAwMTM0Mjc3MzQzOFExMTYwLjYwMjI5NDkyMTg3NSAxNDAwIDExNzIuNDAyMDk5NjA5Mzc1IDE0MDBIMTUwOC4zOTQ3NzUzOTA2MjVRMTUxMi41OTQ3MjY1NjI1IDE0MDAgMTUxNC45OTQ2ODk5NDE0MDYyIDEzOTguMTAwMDM2NjIxMDkzOFExNTE3LjM5NDY1MzMyMDMxMjUgMTM5Ni4yMDAwNzMyNDIxODc1IDE1MTcuMzk0NjUzMzIwMzEyNSAxMzkzLjYwMDA5NzY1NjI1UTE1MTcuMzk0NjUzMzIwMzEyNSAxMzkwLjgwMDE3MDg5ODQzNzUgMTUxNC42OTQ3MDIxNDg0Mzc1IDEzODkuMDAwMTgzMTA1NDY4OFExNTExLjk5NDc1MDk3NjU2MjUgMTM4Ny4yMDAxOTUzMTI1IDE1MDUuOTk0ODczMDQ2ODc1IDEzODYuMDAwMjQ0MTQwNjI1TDE0MjAuOTkzMDQxOTkyMTg3NSAxMzcyLjgwMDA0ODgyODEyNVExNDAzLjU5MzM4Mzc4OTA2MjUgMTM3MC4wMDAxMjIwNzAzMTI1IDEzOTUuNDkzNTMwMjczNDM3NSAxMzU2LjcwMDM3ODQxNzk2ODhRMTM4Ny4zOTM2NzY3NTc4MTI1IDEzNDMuNDAwNjM0NzY1NjI1IDEzODguNTkzNjI3OTI5Njg3NSAxMzIxLjYwMTA3NDIxODc1TDE0NzcuNTkzNzUgNzEuNTk5MTIxMDkzNzVRMTQ3OS41OTM3NSA0Ni45OTk2MzM3ODkwNjI1IDE0ODUuNzkzNjQwMTM2NzE4OCAzOC41OTk3MzE0NDUzMTI1UTE0OTEuOTkzNTMwMjczNDM3NSAzMC4xOTk4MjkxMDE1NjI1IDE1MTIuNzkzMjEyODkwNjI1IDI2LjM5OTkwMjM0Mzc1TDE1OTIuOTk0NzUwOTc2NTYyNSAxMy45OTk3NTU4NTkzNzVRMTU5OC45OTQ2Mjg5MDYyNSAxMy4zOTk3ODAyNzM0Mzc1IDE2MDEuNjk0NTgwMDc4MTI1IDExLjc5OTgwNDY4NzVRMTYwNC4zOTQ1MzEyNSAxMC4xOTk4MjkxMDE1NjI1IDE2MDQuMzk0NTMxMjUgNi4zOTk5MDIzNDM3NVExNjA0LjM5NDUzMTI1IDQuMTk5OTUxMTcxODc1IDE2MDEuOTk0NTY3ODcxMDkzOCAyLjA5OTk3NTU4NTkzNzVRMTU5OS41OTQ2MDQ0OTIxODc1IDAgMTU5NS4zOTQ2NTMzMjAzMTI1IDBIMTA3Ny40MDE3MzMzOTg0Mzc1UTEwNzIuNjAxODA2NjQwNjI1IDAgMTA3MC4yMDE4NDMyNjE3MTg4IDIuMDk5OTc1NTg1OTM3NVExMDY3LjgwMTg3OTg4MjgxMjUgNC4xOTk5NTExNzE4NzUgMTA2Ny44MDE4Nzk4ODI4MTI1IDYuMzk5OTAyMzQzNzVRMTA2Ny44MDE4Nzk4ODI4MTI1IDEwLjE5OTgyOTEwMTU2MjUgMTA3MC41MDE4MzEwNTQ2ODc1IDExLjc5OTgwNDY4NzVRMTA3My4yMDE3ODIyMjY1NjI1IDEzLjM5OTc4MDI3MzQzNzUgMTA3OS44MDE2MzU3NDIxODc1IDEzLjk5OTc1NTg1OTM3NUwxMTU5LjQwMzE5ODI0MjE4NzUgMjYuMzk5OTAyMzQzNzVRMTE4MS4wMDI5Mjk2ODc1IDMwLjE5OTgyOTEwMTU2MjUgMTE4OS4zMDI4NTY0NDUzMTI1IDM5Ljc5OTY4MjYxNzE4NzVRMTE5Ny42MDI3ODMyMDMxMjUgNDkuMzk5NTM2MTMyODEyNSAxMTk2LjQwMjgzMjAzMTI1IDcxLjk5OTAyMzQzNzVMMTExMS44MDI2MTIzMDQ2ODc1IDEyNjIuODAyMDAxOTUzMTI1TDExMjguNDAyMzQzNzUgMTI3Ni4wMDEyMjA3MDMxMjVMNzI5LjAwMDg1NDQ5MjE4NzUgMTM3LjYwNDAwMzkwNjI1UTcyMy42MDA5NTIxNDg0Mzc1IDEyMS42MDQzNzAxMTcxODc1IDcxOC45MDEwNjIwMTE3MTg4IDExNy4yMDQ0MDY3MzgyODEyNVE3MTQuMjAxMTcxODc1IDExMi44MDQ0NDMzNTkzNzUgNzEwLjAwMTIyMDcwMzEyNSAxMTIuODA0NDQzMzU5Mzc1UTcwNy40MDEyNDUxMTcxODc1IDExMi44MDQ0NDMzNTkzNzUgNzA0LjQwMTMwNjE1MjM0MzggMTE1LjEwNDQzMTE1MjM0Mzc1UTcwMS40MDEzNjcxODc1IDExNy40MDQ0MTg5NDUzMTI1IDY5OC40MDE0MjgyMjI2NTYyIDEyMi44MDQzMjEyODkwNjI1UTY5NS40MDE0ODkyNTc4MTI1IDEyOC4yMDQyMjM2MzI4MTI1IDY5MS42MDE1NjI1IDEzNy42MDQwMDM5MDYyNUwyNTMuMDAwNjEwMzUxNTYyNSAxMjU3LjIwMTY2MDE1NjI1TDI2Ny4wMDAzNjYyMTA5Mzc1IDEyODQuNDAxMTIzMDQ2ODc1TDE4Ni4wMDA3MzI0MjE4NzUgMTQ1LjM5NzU4MzAwNzgxMjVRMTgzLjIwMDgwNTY2NDA2MjUgMTAzLjU5ODM4ODY3MTg3NSAyMTIuMDk5ODUzNTE1NjI1IDczLjQ5OTE0NTUwNzgxMjVRMjQwLjk5ODkwMTM2NzE4NzUgNDMuMzk5OTAyMzQzNzUgMjkwLjE5NzYzMTgzNTkzNzUgMjkuNjAwMzQxNzk2ODc1TDM3Mi42MDE0NDA0Mjk2ODc1IDEzLjk5OTc1NTg1OTM3NVEzNzguMDAxMzQyNzczNDM3NSAxMi43OTk4MDQ2ODc1IDM4MC4yMDEzNTQ5ODA0Njg3NSAxMS4xOTk4MjkxMDE1NjI1UTM4Mi40MDEzNjcxODc1IDkuNTk5ODUzNTE1NjI1IDM4Mi40MDEzNjcxODc1IDYuMzk5OTAyMzQzNzVRMzgyLjQwMTM2NzE4NzUgNC4xOTk5NTExNzE4NzUgMzgwLjYwMTM3OTM5NDUzMTI1IDIuMDk5OTc1NTg1OTM3NVEzNzguODAxMzkxNjAxNTYyNSAwIDM3NC42MDE0NDA0Mjk2ODc1IDBILTMuMzk4ODAzNzEwOTM3NVEtNy41OTg3NTQ4ODI4MTI1IDAgLTkuNjk4NzMwNDY4NzUgMi4wOTk5NzU1ODU5Mzc1US0xMS43OTg3MDYwNTQ2ODc1IDQuMTk5OTUxMTcxODc1IC0xMS43OTg3MDYwNTQ2ODc1IDYuMzk5OTAyMzQzNzVRLTExLjc5ODcwNjA1NDY4NzUgMTAuMTk5ODI5MTAxNTYyNSAtOC41OTg3NTQ4ODI4MTI1IDExLjU5OTc5MjQ4MDQ2ODc1US01LjM5ODgwMzcxMDkzNzUgMTIuOTk5NzU1ODU5Mzc1IC0xLjM5ODgwMzcxMDkzNzUgMTMuOTk5NzU1ODU5Mzc1TDU4LjAwMzY2MjEwOTM3NSAyOC44MDAyOTI5Njg3NVExMDIuNjAyOTA1MjczNDM3NSA0MiAxMzIuNzAyMDI2MzY3MTg3NSA3Mi4xOTkyMTg3NVExNjIuODAxMTQ3NDYwOTM3NSAxMDIuMzk4NDM3NSAxNjYuMjAxMDQ5ODA0Njg3NSAxNDcuNzk3NDg1MzUxNTYyNUwyNDQuNDAwODc4OTA2MjUgMTI0MS44MDM4MzMwMDc4MTI1UTI1MC4wMDA3MzI0MjE4NzUgMTMwMy4yMDE5MDQyOTY4NzUgMjQyLjQwMDc1NjgzNTkzNzUgMTMzNS42MDEwMTMxODM1OTM4UTIzNC44MDA3ODEyNSAxMzY4LjAwMDEyMjA3MDMxMjUgMjA5LjAwMTA5ODYzMjgxMjUgMTM3MkwxMzUuNzk5OTI2NzU3ODEyNSAxMzgyLjgwMDA0ODgyODEyNVExMjUuMTk5ODI5MTAxNTYyNSAxMzg0LjgwMDA0ODgyODEyNSAxMjAuMDk5NzMxNDQ1MzEyNSAxMzg2LjQwMDAyNDQxNDA2MjVRMTE0Ljk5OTYzMzc4OTA2MjUgMTM4OCAxMTQuOTk5NjMzNzg5MDYyNSAxMzkyUTExNC45OTk2MzM3ODkwNjI1IDE0MDAgMTMwLjE5OTgyOTEwMTU2MjUgMTQwMEg0NzMuNTkyMDQxMDE1NjI1UTQ4My43OTE5OTIxODc1IDE0MDAgNDkwLjI5MTg3MDExNzE4NzUgMTM5NC42MDAwOTc2NTYyNVE0OTYuNzkxNzQ4MDQ2ODc1IDEzODkuMjAwMTk1MzEyNSA1MDIuNTkxNjc0ODA0Njg3NSAxMzczLjYwMDM0MTc5Njg3NVoiIGZpbGw9IiMyQTI0MjAiLz48L3N2Zz4=">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Museum of the Everyday · Museo de lo Cotidiano</title>
+<link rel="canonical" href="https://museocot.github.io/museodelocotidiano/en/">
+<link rel="alternate" hreflang="es" href="https://museocot.github.io/museodelocotidiano/">
+<link rel="alternate" hreflang="en" href="https://museocot.github.io/museodelocotidiano/en/">
+<link rel="alternate" hreflang="x-default" href="https://museocot.github.io/museodelocotidiano/">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{--t:#C4614A;--td:#9E4A38;--tl:#D4816A;--c:#F5F0E8;--co:#EDE7D9;--cm:#E5DDD0;--g:#6E6860;--n:#2A2420;--nb:#342820;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--c);color:var(--n);font-family:'DM Sans',sans-serif;font-weight:300;font-size:17px;line-height:1.6;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--c);border-bottom:1px solid #D4CEC4;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:72px;}
+.nav-logo{display:flex;align-items:center;gap:14px;font-family:'Fraunces',serif;font-size:.92rem;letter-spacing:.16em;text-transform:uppercase;color:var(--n);text-decoration:none;line-height:1;}
+.nav-logo .iso{width:40px;height:40px;flex-shrink:0;display:block;}
+.nav-logo .marca{white-space:nowrap;}
+a:focus-visible,button:focus-visible{outline:2px solid var(--t);outline-offset:3px;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--t);}
+
+/* BOTONES */
+.btn{display:inline-block;background:var(--t);color:white;text-decoration:none;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;padding:15px 36px;transition:background .2s;font-weight:400;}
+.btn:hover{background:var(--td);}
+.btn-outline{display:inline-block;border:1px solid var(--t);color:var(--t);text-decoration:none;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;padding:12px 28px;transition:all .2s;font-weight:400;}
+.btn-outline:hover{background:var(--t);color:white;}
+.btn-ghost{display:inline-block;border:1px solid #C4BEB4;color:var(--g);text-decoration:none;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;transition:all .2s;}
+.btn-ghost:hover{border-color:var(--t);color:var(--t);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:72px;display:grid;grid-template-columns:1fr 1fr;}
+.hero-txt{padding:88px 64px 88px 88px;display:flex;flex-direction:column;justify-content:center;}
+.eyebrow{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--t);margin-bottom:20px;}
+h1{font-family:'Fraunces',serif;font-size:clamp(2.8rem,4.8vw,4.2rem);line-height:1.08;font-weight:600;margin-bottom:28px;}
+h1 em{font-style:italic;color:var(--t);}
+.hero-sub{font-size:1.05rem;line-height:1.85;color:var(--g);max-width:420px;margin-bottom:44px;}
+.hero-img{overflow:hidden;background:var(--co);}
+.hero-img img.desktop{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;}
+.hero-img img.movil{display:none;}
+
+/* DIVISOR */
+.div{text-align:center;padding:20px 0;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:#C4BEB4;background:var(--c);}
+.div-dark{background:var(--n);color:#3A2E2A;}
+.div-mid{background:var(--co);color:#B0A89E;}
+
+/* SECCIONES */
+section{padding:88px;}
+.sec-eyebrow{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--t);margin-bottom:14px;}
+h2{font-family:'Fraunces',serif;font-size:clamp(2rem,3.2vw,2.8rem);font-weight:600;line-height:1.15;margin-bottom:18px;}
+h3{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;}
+.sec-txt{font-size:1rem;line-height:1.85;color:var(--g);max-width:580px;margin-bottom:36px;}
+
+/* EL MUSEO / EL CONCEPTO */
+#el-museo{display:grid;grid-template-columns:1fr 1fr;padding:0;}
+.concepto-img{overflow:hidden;background:var(--c);display:flex;align-items:center;justify-content:center;min-height:500px;}
+.concepto-img img{width:100%;height:100%;object-fit:contain;padding:48px 32px;}
+.concepto-txt{padding:88px 72px;display:flex;flex-direction:column;justify-content:center;background:var(--co);}
+.cita{font-family:'Fraunces',serif;font-size:1.12rem;font-style:italic;line-height:1.75;color:var(--n);margin-bottom:24px;padding-left:22px;border-left:2px solid var(--t);}
+hr.regla{border:none;border-top:1px solid #C4BEB4;margin:20px 0;}
+
+/* TIENDA UNIFICADA */
+#tienda{background:var(--c);}
+.libro-destacado{background:var(--n);color:var(--c);padding:40px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;margin-bottom:2px;}
+.libro-destacado .prod-ico{color:var(--tl);}
+.libro-info .prod-nom{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;color:var(--c);margin-bottom:8px;}
+.libro-info .prod-desc{font-size:.92rem;color:#9A918A;line-height:1.7;margin-bottom:20px;max-width:480px;}
+.vitrina-nota{background:var(--co);border-left:3px solid var(--t);padding:24px 28px;margin-bottom:2px;}
+.vitrina-nota p:first-child{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;margin-bottom:8px;}
+.vitrina-nota p:last-child{font-size:.85rem;line-height:1.75;color:var(--g);}
+.mat-header{padding:40px 0 8px;}
+.mat-header h3{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;margin-bottom:8px;}
+.mat-header p{font-size:.95rem;color:var(--g);line-height:1.7;max-width:560px;}
+.recuadros-tip{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:28px 0 2px;}
+.tip-box{background:var(--co);border-left:3px solid var(--t);padding:24px 24px;}
+.tip-box p:first-child{font-family:'Fraunces',serif;font-size:.95rem;font-weight:600;margin-bottom:8px;}
+.tip-box p:last-child{font-size:.86rem;line-height:1.8;color:var(--g);}
+.mat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:2px;margin-top:2px;}
+.material{background:var(--co);padding:28px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;transition:background .2s;}
+.material:hover{background:var(--cm);}
+.mat-ico{color:var(--t);}
+.mat-nom{font-family:'Fraunces',serif;font-size:.98rem;font-weight:600;}
+.mat-desc{font-size:.78rem;color:var(--g);line-height:1.6;flex:1;}
+
+/* GALERÍAS */
+#galerias{background:var(--co);}
+.plano-wrap{margin-top:48px;border:1px solid #C4BEB4;overflow:hidden;}
+.plano-wrap img{width:100%;display:block;}
+
+/* TESTIMONIOS */
+#testimonios{background:var(--c);}
+.test-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px;}
+.comunidad-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;margin-top:56px;}
+.comunidad-foto{overflow:hidden;background:var(--co);}
+.comunidad-foto img{width:100%;height:auto;display:block;}
+.comunidad-foto p{padding:14px 18px;margin:0;font-size:0.9rem;}
+.testimonio{display:flex;flex-direction:column;gap:22px;padding:36px;background:var(--co);}
+.test-cita{font-family:'Fraunces',serif;font-size:1.15rem;font-style:italic;line-height:1.65;color:var(--n);position:relative;padding-left:24px;}
+.test-cita::before{content:'“';font-size:3rem;color:var(--t);opacity:.25;position:absolute;left:0;top:-10px;font-style:normal;line-height:1;}
+.test-autor{display:flex;align-items:center;gap:18px;border-top:1px solid #D4CEC4;padding-top:18px;}
+.test-info p:first-child{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;}
+.test-info p:last-child{font-size:.78rem;color:var(--g);letter-spacing:.06em;text-transform:uppercase;}
+
+/* CLUB POSTAL — versión clara (ver bloque #club más abajo) */
+#club .sec-eyebrow{color:var(--t);}
+.club-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:48px;}
+.beneficios{list-style:none;display:flex;flex-direction:column;gap:22px;}
+.beneficios li{display:flex;gap:16px;font-size:.95rem;color:#9A918A;line-height:1.75;}
+.beneficios li .ico{color:var(--t);flex-shrink:0;margin-top:3px;}
+.club-form{background:var(--co);padding:40px;display:flex;flex-direction:column;gap:14px;border-radius:0;}
+.club-form h3{color:var(--n);margin-bottom:8px;font-family:'Fraunces',serif;font-size:1.3rem;}
+.club-form input,.club-form textarea{background:white;border:1px solid #D4CEC4;color:var(--n);font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:300;padding:12px 16px;outline:none;transition:border-color .2s;resize:none;}
+.club-form input:focus,.club-form textarea:focus{border-color:var(--t);}
+.club-form input::placeholder,.club-form textarea::placeholder{color:#B0A89E;}
+.campo-opt{font-size:.74rem;color:var(--g);margin-top:-6px;}
+.btn-club{background:var(--t);color:white;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;padding:15px 32px;transition:background .2s;text-align:center;font-weight:400;text-decoration:none;display:block;}
+.btn-club:hover{background:var(--td);}
+.club-nota{font-size:.74rem;color:var(--g);line-height:1.65;}
+
+/* CONTACTO */
+#contacto{background:var(--co);}
+.contact-form{max-width:560px;display:flex;flex-direction:column;gap:14px;}
+.contact-form input,.contact-form textarea{background:white;border:1px solid #D4CEC4;color:var(--n);font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:300;padding:12px 16px;outline:none;transition:border-color .2s;resize:none;}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--t);}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#B0A89E;}
+
+/* FOOTER */
+footer{background:var(--n);color:#5A4E48;padding:40px 88px;display:flex;justify-content:space-between;align-items:center;font-size:.74rem;letter-spacing:.06em;border-top:1px solid #3A2E2A;gap:24px;flex-wrap:wrap;}
+footer a{color:#5A4E48;text-decoration:none;transition:color .2s;}
+footer a:hover{color:var(--t);}
+.footer-logo{font-family:'Fraunces',serif;font-size:1rem;letter-spacing:.15em;text-transform:uppercase;color:#A09890;white-space:nowrap;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 20px;}.nav-links{display:none;}
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-img img.desktop{display:none;}
+  .hero-img img.movil{display:block;width:100%;height:auto;object-fit:cover;}
+  .hero-img{height:auto;}
+  .hero-txt{padding:48px 24px;}
+  #el-museo{grid-template-columns:1fr;}.concepto-txt{padding:48px 24px;}
+  .concepto-img{min-height:260px;}
+  section{padding:52px 24px;}
+  .libro-destacado{grid-template-columns:1fr;gap:16px;}
+  .recuadros-tip{grid-template-columns:1fr;}
+  .test-grid{grid-template-columns:1fr;gap:24px;}
+  .club-layout{grid-template-columns:1fr;gap:36px;}
+  footer{flex-direction:column;text-align:center;padding:32px 24px;}
+}
+
+@media(max-width:900px){
+  .concepto-desktop{display:none !important;}
+  .concepto-movil{display:block !important;width:100%;height:auto;object-fit:cover;padding:0 !important;}
+}
+
+@media(max-width:900px){
+  #el-museo { display:flex; flex-direction:column; }
+  #el-museo .concepto-img { order: 2 !important; }
+  #el-museo .concepto-txt { order: 1 !important; }
+}
+
+details summary::-webkit-details-marker { display:none; }
+details[open] summary span:last-child { color:var(--g); }
+details[open] { border-color:var(--t); }
+
+
+.form-msg{display:none;padding:12px 16px;font-size:.85rem;margin-top:8px;}
+.form-msg.ok{background:#E8F5E9;color:#2E7D32;border-left:3px solid #4CAF50;}
+.form-msg.err{background:#FFEBEE;color:#C62828;border-left:3px solid #EF5350;}
+
+
+.hamburger {
+  display:none; flex-direction:column; gap:5px; cursor:pointer;
+  background:none; border:none; padding:4px;
+}
+.hamburger span {
+  display:block; width:24px; height:2px;
+  background:var(--n); transition:all .3s;
+}
+.nav-mobile {
+  display:none; position:fixed; top:72px; left:0; right:0;
+  background:var(--c); border-bottom:1px solid #D4CEC4;
+  flex-direction:column; z-index:99;
+  padding:8px 0;
+}
+.nav-mobile.open { display:flex; }
+.nav-mobile a {
+  padding:14px 28px; font-size:.82rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--g); text-decoration:none;
+  border-bottom:1px solid #EDE7D9; transition:color .2s;
+}
+.nav-mobile a:last-child { border-bottom:none; }
+.nav-mobile a:hover { color:var(--t); }
+
+@media(max-width:900px){
+  .hamburger { display:flex; }
+  .nav-links { display:none; }
+}
+
+@media(max-width:900px){
+  .snail-wrap { padding:0 24px 48px !important; }
+  .snail-wrap details { max-width:100%; }
+}
+
+/* ANCLAS BAJO EL HEADER FIJO */
+section[id], div[id], .ancla { scroll-margin-top:84px; }
+
+/* FRASE MANIFIESTO */
+.manifiesto{
+  font-family:'Fraunces',serif;font-size:1.24rem;font-style:italic;line-height:1.55;
+  color:var(--n);margin:30px 0 34px;padding:26px 0 0;border-top:1px solid #C4BEB4;
+  max-width:520px;
+}
+.manifiesto span{display:block;color:var(--t);}
+
+/* HERO — imagen protagonista */
+.hero-img{overflow:hidden;background:var(--co);}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;width:fit-content;
+  font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t);
+  text-decoration:none;padding:10px 0 8px;border-bottom:1px solid var(--t);
+  transition:color .2s,border-color .2s;}
+.hero-cta:hover{color:var(--td);border-color:var(--td);}
+.hero-cta .flecha{transition:transform .25s;font-size:1rem;}
+.hero-cta:hover .flecha{transform:translateY(3px);}
+
+@media(max-width:900px){
+  .hero{min-height:auto;}
+  /* la foto no debe estirar el hero: se recorta a una altura editorial */
+  .hero-img{height:auto;max-height:56vh;}
+  .hero-img img.desktop,.hero-img img.movil{width:100%;height:100%;max-height:56vh;object-fit:cover;object-position:center 45%;}
+  /* entre 600 y 900 px se usa la imagen grande (más nítida en tablet/2x) */
+  .hero-img img.desktop{display:block;}
+  .hero-img img.movil{display:none;}
+  h1{font-size:clamp(2.35rem,10.5vw,3.1rem);}
+  .hero-txt{padding:40px 24px 44px;}
+  .hero-sub{margin-bottom:32px;}
+  .manifiesto{font-size:1.12rem;margin:26px 0 30px;}
+}
+/* En móvil los rótulos de sección iban casi invisibles (1,6:1 sobre crema) */
+@media(max-width:900px){
+  .div{color:#8C8278;}
+  .div-mid{color:#8C8278;}
+}
+
+/* En móvil: isotipo + nombre en 3 líneas */
+@media(max-width:900px){
+  .nav-logo .iso{width:36px;height:36px;flex-shrink:0;}
+  .nav-logo .marca{
+    display:flex;flex-direction:column;
+    font-size:.62rem;letter-spacing:.18em;line-height:1.5;
+    font-family:'Fraunces',serif;font-weight:600;color:var(--n);
+    white-space:nowrap;
+  }
+  .nav-logo .marca-txt{display:none;}
+  .nav-logo .marca-l1,.nav-logo .marca-l2,.nav-logo .marca-l3{display:block;}
+}
+@media(min-width:901px){
+  .nav-logo .marca-l1,.nav-logo .marca-l2,.nav-logo .marca-l3{display:none;}
+}
+/* por debajo de 600 px entra el recorte específico de móvil */
+@media(max-width:599px){
+  .hero-img img.desktop{display:none;}
+  .hero-img img.movil{display:block;}
+}
+/* ============ CARRUSEL (scroll-snap nativo, sin librerías) ============ */
+.carrusel-wrap{position:relative;margin-top:44px;}
+.carrusel{
+  display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  padding:4px 0 22px;
+  scrollbar-width:none;
+}
+.carrusel::-webkit-scrollbar{display:none;}
+.carrusel > *{scroll-snap-align:start;flex:0 0 auto;}
+.carrusel:focus-visible{outline:2px solid var(--t);outline-offset:6px;}
+
+/* tarjeta de página */
+.pagina{width:78%;max-width:420px;background:#FFFFFF;border:1px solid #E0D9CD;display:flex;flex-direction:column;}
+.pagina figure{margin:0;background:var(--co);aspect-ratio:4/5;overflow:hidden;}
+.pagina img{width:100%;height:100%;object-fit:cover;display:block;}
+.pagina .cuerpo{padding:22px 24px 26px;}
+.pagina .num{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--t);margin-bottom:8px;}
+.pagina h3{font-size:1.28rem;margin-bottom:10px;}
+.pagina p{font-size:.92rem;line-height:1.75;color:var(--g);margin:0;}
+
+/* tarjeta de foto (Otros directores) */
+.expo{width:80%;max-width:460px;}
+.expo figure{margin:0;background:var(--co);aspect-ratio:4/5;overflow:hidden;border:1px solid #E0D9CD;}
+.expo img{width:100%;height:100%;object-fit:cover;display:block;}
+.expo figcaption{font-size:.78rem;letter-spacing:.06em;color:var(--g);padding-top:10px;}
+
+/* flechas superpuestas: solo escritorio */
+.carrusel-nav{display:none;}/* oculto en móvil */
+@media(min-width:901px){
+  .carrusel{gap:28px;}
+  .carrusel-wrap{position:relative;}
+  .carrusel-nav{display:block !important;position:static;pointer-events:none;}
+  .carrusel-nav button{
+    pointer-events:all;
+    position:absolute;top:38%;transform:translateY(-50%);
+    width:44px;height:44px;border-radius:50%;
+    border:1px solid rgba(196,190,180,.6);
+    background:rgba(245,240,232,.9);
+    color:var(--n);
+    cursor:pointer;font-size:1.15rem;line-height:1;
+    box-shadow:0 2px 8px rgba(42,36,32,.14);
+    transition:background .18s,box-shadow .18s;
+    z-index:10;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .carrusel-nav button:hover:not(:disabled){background:rgba(245,240,232,1);box-shadow:0 3px 14px rgba(42,36,32,.2);}
+  .carrusel-nav button:disabled{opacity:.28;cursor:default;}
+  .carrusel-nav button[data-dir="-1"]{left:10px;}
+  .carrusel-nav button[data-dir="1"]{right:10px;}
+  .pagina{width:340px;}
+  .expo{width:400px;}
+}
+
+/* tarjeta de invitación (última del carrusel de museos) */
+.expo-invitacion{
+  background:var(--c);border:1px solid #D4CEC4;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:32px 28px;gap:16px;aspect-ratio:4/5;
+  width:80%;max-width:460px;flex-shrink:0;
+}
+.expo-inv-pregunta{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;line-height:1.3;color:var(--n);}
+.expo-inv-sub{font-size:.92rem;line-height:1.7;color:var(--g);}
+.expo-inv-btn{margin-top:8px;width:fit-content;}
+@media(min-width:901px){
+  .expo-invitacion{width:400px;}
+}
+.expo-invitacion.abierta{aspect-ratio:auto;align-items:stretch;}
+.expo-invitacion .museo-form-wrap{margin-top:22px;width:100%;box-sizing:border-box;}
+
+/* formulario inline enviar museo */
+.museo-label{display:flex;flex-direction:column;font-family:'Fraunces',serif;font-size:.95rem;font-weight:600;color:var(--n);}
+.museo-hint{font-family:'DM Sans',sans-serif;font-size:.74rem;color:var(--g);margin-top:4px;font-weight:300;}
+
+/* ============ LAS PÁGINAS ============ */
+.paginas-cierre{margin-top:56px;border-top:1px solid #C4BEB4;padding-top:40px;max-width:620px;}
+.paginas-cierre h3{font-size:1.5rem;margin-bottom:18px;}
+.paginas-cierre p{font-size:1rem;line-height:1.85;color:var(--g);margin-bottom:16px;}
+.paginas-cierre .pregunta{font-family:'Fraunces',serif;font-size:1.2rem;font-style:italic;color:var(--n);margin:26px 0 22px;}
+
+/* ============ TIENDA ============ */
+.productos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px;}
+.producto{background:#FFFFFF;border:1px solid #E0D9CD;padding:20px 18px;display:flex;flex-direction:column;gap:10px;}
+.producto .prod-ico{color:var(--t);}
+.producto .prod-nom{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;line-height:1.3;}
+.producto .prod-desc{font-size:.85rem;line-height:1.7;color:var(--g);flex:1;}
+.producto .prod-plat{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);}
+.producto .btn{width:fit-content;margin-top:4px;font-size:.75rem;padding:11px 18px;}
+@media(min-width:901px){.productos{grid-template-columns:1fr 1fr;gap:24px;}
+  .producto{padding:28px 26px;}
+  .producto .prod-nom{font-size:1.3rem;}
+  .producto .prod-desc{font-size:.92rem;}
+  .producto .btn{font-size:.82rem;padding:15px 36px;}
+}
+
+/* Tienda: portada del libro y enlace a la otra edición */
+.producto .prod-portada{width:120px;height:auto;display:block;box-shadow:0 6px 18px rgba(42,36,32,.18);margin-bottom:6px;}
+.producto .prod-alt{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--t);text-decoration:none;}
+.producto .prod-alt:hover{color:var(--td);text-decoration:underline;}
+@media(max-width:700px){.productos{grid-template-columns:1fr;}}
+
+/* ============ CLUB EN CREMA ============ */
+#club{background:var(--co);color:var(--n);}
+#club h2{color:var(--n);}
+#club .sec-txt{color:var(--g);}
+.club-frase{
+  font-family:'Fraunces',serif;font-size:1.24rem;font-style:italic;line-height:1.6;
+  color:var(--n);border-top:1px solid #C4BEB4;padding-top:26px;margin:30px 0 6px;max-width:620px;
+}
+.club-frase span{display:block;color:var(--t);}
+.club-bloques{display:grid;grid-template-columns:1fr;gap:2px;margin-top:36px;}
+.club-bloque{background:#FFFFFF;border-left:3px solid var(--t);padding:22px 24px;}
+.club-bloque p:first-child{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;margin-bottom:8px;}
+.club-bloque p:last-child{font-size:.9rem;line-height:1.75;color:var(--g);margin:0;}
+.club-cierre{font-family:'Fraunces',serif;font-size:1rem;letter-spacing:.04em;color:var(--t);margin-top:26px;}
+.club-cierre span{display:block;font-family:'DM Sans',sans-serif;font-size:.86rem;letter-spacing:0;color:var(--g);margin-top:6px;}
+@media(min-width:901px){.club-bloques{grid-template-columns:1fr 1fr;gap:24px;}}
+#club .club-form{background:#FFFFFF;border:1px solid #E0D9CD;}
+#club .beneficios li{color:var(--g);}
+
+/* tablet: el texto del hero aprovecha el ancho */
+@media(min-width:601px) and (max-width:900px){
+  .hero-txt{padding:64px 48px 60px;}
+  h1{font-size:clamp(2.9rem,6.6vw,3.7rem);}
+  .hero-sub{max-width:600px;font-size:1.1rem;}
+  .concepto-txt{padding:64px 48px;}
+  .sec-txt,.manifiesto{max-width:640px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#" aria-label="Museo de lo Cotidiano — back to top">
+    <svg class="iso" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="isotipo-museo-titulo"><title id="isotipo-museo-titulo">Museo de lo Cotidiano</title><path d="M8.00,8.00 L18.00,8.00 A14.00,14.00 0 0 0 46.00,8.00 L66.00,8.00 A14.00,14.00 0 0 0 94.00,8.00 L114.00,8.00 A14.00,14.00 0 0 0 142.00,8.00 L162.00,8.00 A14.00,14.00 0 0 0 190.00,8.00 L210.00,8.00 A14.00,14.00 0 0 0 238.00,8.00 L258.00,8.00 A14.00,14.00 0 0 0 286.00,8.00 L306.00,8.00 A14.00,14.00 0 0 0 334.00,8.00 L354.00,8.00 A14.00,14.00 0 0 0 382.00,8.00 L392.00,8.00 L392.00,18.00 A14.00,14.00 0 0 0 392.00,46.00 L392.00,66.00 A14.00,14.00 0 0 0 392.00,94.00 L392.00,114.00 A14.00,14.00 0 0 0 392.00,142.00 L392.00,162.00 A14.00,14.00 0 0 0 392.00,190.00 L392.00,210.00 A14.00,14.00 0 0 0 392.00,238.00 L392.00,258.00 A14.00,14.00 0 0 0 392.00,286.00 L392.00,306.00 A14.00,14.00 0 0 0 392.00,334.00 L392.00,354.00 A14.00,14.00 0 0 0 392.00,382.00 L392.00,392.00 L382.00,392.00 A14.00,14.00 0 0 0 354.00,392.00 L334.00,392.00 A14.00,14.00 0 0 0 306.00,392.00 L286.00,392.00 A14.00,14.00 0 0 0 258.00,392.00 L238.00,392.00 A14.00,14.00 0 0 0 210.00,392.00 L190.00,392.00 A14.00,14.00 0 0 0 162.00,392.00 L142.00,392.00 A14.00,14.00 0 0 0 114.00,392.00 L94.00,392.00 A14.00,14.00 0 0 0 66.00,392.00 L46.00,392.00 A14.00,14.00 0 0 0 18.00,392.00 L8.00,392.00 L8.00,382.00 A14.00,14.00 0 0 0 8.00,354.00 L8.00,334.00 A14.00,14.00 0 0 0 8.00,306.00 L8.00,286.00 A14.00,14.00 0 0 0 8.00,258.00 L8.00,238.00 A14.00,14.00 0 0 0 8.00,210.00 L8.00,190.00 A14.00,14.00 0 0 0 8.00,162.00 L8.00,142.00 A14.00,14.00 0 0 0 8.00,114.00 L8.00,94.00 A14.00,14.00 0 0 0 8.00,66.00 L8.00,46.00 A14.00,14.00 0 0 0 8.00,18.00 L8.00,8.00 Z" fill="#C4614A"/><rect x="48" y="48" width="304" height="304" fill="#F5F0E8"/><rect x="60" y="60" width="280" height="280" fill="none" stroke="#C4614A" stroke-width="3"/><g fill="#C4614A"><rect x="197" y="48" width="6" height="28"/><rect x="197" y="324" width="6" height="28"/><rect x="48" y="197" width="28" height="6"/><rect x="324" y="197" width="28" height="6"/></g><path transform="translate(97.619,290.000) scale(0.128571,-0.128571)" d="M842.5970458984375 520.5906982421875 820.5972900390625 484.5914306640625 1141.20263671875 1368.400634765625Q1148.0025634765625 1388.4002685546875 1154.3024291992188 1394.2001342773438Q1160.602294921875 1400 1172.402099609375 1400H1508.394775390625Q1512.5947265625 1400 1514.9946899414062 1398.1000366210938Q1517.3946533203125 1396.2000732421875 1517.3946533203125 1393.60009765625Q1517.3946533203125 1390.8001708984375 1514.6947021484375 1389.0001831054688Q1511.9947509765625 1387.2001953125 1505.994873046875 1386.000244140625L1420.9930419921875 1372.800048828125Q1403.5933837890625 1370.0001220703125 1395.4935302734375 1356.7003784179688Q1387.3936767578125 1343.400634765625 1388.5936279296875 1321.60107421875L1477.59375 71.59912109375Q1479.59375 46.9996337890625 1485.7936401367188 38.5997314453125Q1491.9935302734375 30.1998291015625 1512.793212890625 26.39990234375L1592.9947509765625 13.999755859375Q1598.99462890625 13.3997802734375 1601.694580078125 11.7998046875Q1604.39453125 10.1998291015625 1604.39453125 6.39990234375Q1604.39453125 4.199951171875 1601.9945678710938 2.0999755859375Q1599.5946044921875 0 1595.3946533203125 0H1077.4017333984375Q1072.601806640625 0 1070.2018432617188 2.0999755859375Q1067.8018798828125 4.199951171875 1067.8018798828125 6.39990234375Q1067.8018798828125 10.1998291015625 1070.5018310546875 11.7998046875Q1073.2017822265625 13.3997802734375 1079.8016357421875 13.999755859375L1159.4031982421875 26.39990234375Q1181.0029296875 30.1998291015625 1189.3028564453125 39.7996826171875Q1197.602783203125 49.3995361328125 1196.40283203125 71.9990234375L1111.8026123046875 1262.802001953125L1128.40234375 1276.001220703125L729.0008544921875 137.60400390625Q723.6009521484375 121.6043701171875 718.9010620117188 117.20440673828125Q714.201171875 112.804443359375 710.001220703125 112.804443359375Q707.4012451171875 112.804443359375 704.4013061523438 115.10443115234375Q701.4013671875 117.4044189453125 698.4014282226562 122.8043212890625Q695.4014892578125 128.2042236328125 691.6015625 137.60400390625L253.0006103515625 1257.20166015625L267.0003662109375 1284.401123046875L186.000732421875 145.3975830078125Q183.2008056640625 103.598388671875 212.099853515625 73.4991455078125Q240.9989013671875 43.39990234375 290.1976318359375 29.600341796875L372.6014404296875 13.999755859375Q378.0013427734375 12.7998046875 380.20135498046875 11.1998291015625Q382.4013671875 9.599853515625 382.4013671875 6.39990234375Q382.4013671875 4.199951171875 380.60137939453125 2.0999755859375Q378.8013916015625 0 374.6014404296875 0H-3.3988037109375Q-7.5987548828125 0 -9.69873046875 2.0999755859375Q-11.7987060546875 4.199951171875 -11.7987060546875 6.39990234375Q-11.7987060546875 10.1998291015625 -8.5987548828125 11.59979248046875Q-5.3988037109375 12.999755859375 -1.3988037109375 13.999755859375L58.003662109375 28.80029296875Q102.6029052734375 42 132.7020263671875 72.19921875Q162.8011474609375 102.3984375 166.2010498046875 147.7974853515625L244.40087890625 1241.8038330078125Q250.000732421875 1303.201904296875 242.4007568359375 1335.6010131835938Q234.80078125 1368.0001220703125 209.0010986328125 1372L135.7999267578125 1382.800048828125Q125.1998291015625 1384.800048828125 120.0997314453125 1386.4000244140625Q114.9996337890625 1388 114.9996337890625 1392Q114.9996337890625 1400 130.1998291015625 1400H473.592041015625Q483.7919921875 1400 490.2918701171875 1394.60009765625Q496.791748046875 1389.2001953125 502.5916748046875 1373.600341796875Z" fill="#2A2420"/></svg>
+    <span class="marca"><span class="marca-txt">Museo de lo Cotidiano</span><span class="marca-l1">MUSEO</span><span class="marca-l2">DE LO</span><span class="marca-l3">COTIDIANO</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#el-museo">The Museum</a></li>
+    <li><a href="#como-funciona">How it works</a></li>
+    <li><a href="#comunidad">Other museums</a></li>
+    <li><a href="#tienda">Shop</a></li>
+    <li><a href="#club">The Club</a></li>
+    <li><a href="#contacto">Contact</a></li>
+    <li><a href="/museodelocotidiano/" data-lang="es" lang="es" hreflang="es" title="Español">ES</a></li>
+  </ul>
+  <button type="button" class="hamburger" id="btn-menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div id="nav-mobile" class="nav-mobile">
+  <a href="#el-museo">The Museum</a>
+  <a href="#como-funciona">How it works</a>
+  <a href="#comunidad">Other museums</a>
+  <a href="#tienda">Shop</a>
+  <a href="#club">The Club</a>
+  <a href="#contacto">Contact</a>
+  <a href="/museodelocotidiano/" data-lang="es" lang="es" hreflang="es">Español</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-txt">
+    <p class="eyebrow">Free admission</p>
+    <h1>A museum for<br>what <em>goes<br>unnoticed</em></h1>
+    <p class="hero-sub">Sometimes you look at a wrapper, a box, a magazine, a flyer… and think: there’s something about this. Here, those things get their own display case, room and gallery.</p>
+    <a href="#el-museo" class="hero-cta">Discover the museum <span class="flecha" aria-hidden="true">↓</span></a>
+  </div>
+  <div class="hero-img">
+    <img class="desktop" src="/museodelocotidiano/images/hero-sala-colores.jpg" width="1600" height="1200" loading="lazy" alt="A page from the Landscapes Room, with pieces cut into stamp shapes">
+    <img class="movil" src="/museodelocotidiano/images/hero-sala-colores-movil.jpg" width="900" height="675" loading="lazy" alt="A page from the Landscapes Room, with pieces cut into stamp shapes">
+  </div>
+</div>
+
+<!-- EL MUSEO / EL CONCEPTO -->
+<span id="concepto" class="ancla" aria-hidden="true"></span>
+<div id="el-museo">
+  <div class="concepto-img" style="order:1;">
+    <img class="concepto-desktop" src="/museodelocotidiano/images/portada-museo.jpg" width="1200" height="903" alt="Museo de lo Cotidiano cover" loading="lazy">
+    <img class="concepto-movil" src="/museodelocotidiano/images/portada-libro.jpg" width="800" height="1123" alt="Museo de lo Cotidiano cover" style="display:none;" loading="lazy">
+  </div>
+  <div class="concepto-txt" style="order:2;">
+    <p class="sec-eyebrow">The concept</p>
+    <h2>You run<br>this museum</h2>
+    <p class="sec-txt">This museum gathers fragments found in daily life: papers, codes, colors, textures and shapes that usually go unnoticed, and that here can find their place as collection pieces.</p>
+    <p class="sec-txt">The pieces are out there; you just have to learn to see them.</p>
+    <p class="manifiesto">Here, the collectibles are free.<span>The fun is in finding them.</span></p>
+    <a href="https://www.amazon.com/dp/B0HKW1N6TM" class="btn" style="width:fit-content;" target="_blank" rel="noopener">Start your museum</a>
+  </div>
+</div>
+
+<div class="div">How it works</div>
+
+<!-- CÓMO FUNCIONA / LAS PÁGINAS -->
+<section id="como-funciona">
+  <p class="sec-eyebrow">How it works</p>
+  <h2>Look. Find.<br>Collect.</h2>
+
+  <div class="carrusel-wrap">
+    <div class="carrusel" id="car-como" tabindex="0" role="group" aria-label="How it works: swipe to see the three steps">
+      <article class="pagina">
+        <figure><img src="/museodelocotidiano/images/como-01-mira.jpg" width="825" height="1100" alt="A page from the Portraits Room with the first pieces glued in" loading="lazy"></figure>
+        <div class="cuerpo">
+          <p class="num">01</p>
+          <h3>Look</h3>
+          <p>Start noticing the things that usually go unnoticed.</p>
+        </div>
+      </article>
+      <article class="pagina">
+        <figure><img src="/museodelocotidiano/images/como-02-encuentra.jpg" width="880" height="1100" alt="A page from the Birds Room with cut-out pieces" loading="lazy"></figure>
+        <div class="cuerpo">
+          <p class="num">02</p>
+          <h3>Find</h3>
+          <p>When something catches your eye, it can become a piece in your museum.</p>
+        </div>
+      </article>
+      <article class="pagina">
+        <figure><img src="/museodelocotidiano/images/como-03-vitrinas.jpg" width="948" height="1100" alt="A page from the Food Room with full display cases" loading="lazy"></figure>
+        <div class="cuerpo">
+          <p class="num">03</p>
+          <h3>Fill your display cases</h3>
+          <p>Keep, sort and enjoy watching your pages start to fill up.</p>
+        </div>
+      </article>
+    </div>
+  <div class="carrusel-nav" aria-hidden="true">
+    <button type="button" data-car="car-como" data-dir="-1" aria-label="How it works: previous">&#8592;</button>
+    <button type="button" data-car="car-como" data-dir="1" aria-label="How it works: next">&#8594;</button>
+  </div>
+  </div>
+
+  <div class="paginas-cierre">
+    <h3>The satisfaction of a full page.</h3>
+    <p>You start with one piece. Then another turns up. And little by little, almost without noticing, a page begins to fill.</p>
+    <p>Every museum ends up different, because every person learns to look at different things.</p>
+    <p class="pregunta">What would your museum look like?</p>
+    <a href="https://www.amazon.com/dp/B0HKW1N6TM" class="btn" target="_blank" rel="noopener">Start yours</a>
+  </div>
+</section>
+
+<div class="div">Other directors, other museums</div>
+
+<!-- OTROS DIRECTORES, OTROS MUSEOS -->
+<section id="comunidad" style="background:var(--co);">
+  <p class="sec-eyebrow">Other directors, other museums</p>
+  <h2>Museums that have<br>already opened</h2>
+  <p class="sec-txt">Every collection is different. These are some of the museums already filling up.</p>
+
+  <div class="carrusel-wrap">
+    <div class="carrusel" id="car-museos" tabindex="0" role="group" aria-label="Other museums: swipe to see more">
+      <figure class="expo"><img src="/museodelocotidiano/images/comunidad/museo-seguidor-1.jpeg" alt="Colors Room from a museum" loading="lazy"></figure>
+      <figure class="expo"><img src="/museodelocotidiano/images/comunidad/museo-seguidor-2.jpeg" alt="Landscapes Room from a museum" loading="lazy"></figure>
+      <figure class="expo"><img src="/museodelocotidiano/images/comunidad/museo-seguidor-3.jpeg" alt="Portraits Room from a museum" loading="lazy"></figure>
+      <figure class="expo"><img src="/museodelocotidiano/images/comunidad/museo-seguidor-4.jpeg" alt="A tour of a museum" loading="lazy"></figure>
+      <div class="expo expo-invitacion" id="expo-invitacion">
+        <p class="expo-inv-pregunta">Do you have your own Museum?</p>
+        <p class="expo-inv-sub">Your collection can be part of this room too.</p>
+        <button type="button" class="btn expo-inv-btn" onclick="toggleFormMuseo()">Show my Museum →</button>
+
+        <!-- Formulario inline: se despliega dentro de la propia tarjeta -->
+        <div id="form-museo-wrap" class="museo-form-wrap" style="display:none;">
+          <form id="form-museo" onsubmit="event.preventDefault();sendFormMuseo()">
+            <input type="hidden" name="access_key" value="01a4b244-27c8-4ae9-b31d-7d05cd033c6b">
+            <input type="hidden" name="subject" value="Envío de Museo (imagen) (EN)">
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <label class="museo-label">
+                <span>An image of your Museum</span>
+                <input type="file" name="attachment" accept="image/jpeg,image/png,image/webp" required style="margin-top:8px;font-size:.88rem;color:var(--g);">
+                <span class="museo-hint">JPG, PNG or WebP · max. 5 MB</span>
+              </label>
+              <label class="museo-label">
+                <span>Anything you’d like to tell us about it? <span style="color:var(--g);font-weight:300;">(optional)</span></span>
+                <textarea name="mensaje" rows="3" placeholder="Tell us anything you like…" style="margin-top:8px;background:white;border:1px solid #D4CEC4;color:var(--n);font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:300;padding:12px 16px;outline:none;resize:none;transition:border-color .2s;"></textarea>
+              </label>
+              <button type="submit" class="btn" style="width:fit-content;">Send →</button>
+              <div id="msg-museo" class="form-msg"></div>
+              <p style="font-size:.74rem;color:var(--g);line-height:1.65;">You can also show us, or send us a DM on social media.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="carrusel-nav" aria-hidden="true">
+      <button type="button" data-car="car-museos" data-dir="-1" aria-label="Other museums: previous">&#8592;</button>
+      <button type="button" data-car="car-museos" data-dir="1" aria-label="Other museums: next">&#8594;</button>
+    </div>
+  </div>
+
+</section>
+
+<div class="div">The museum shop</div>
+
+<!-- TIENDA -->
+<section id="tienda">
+  <p class="sec-eyebrow">Museum Shop</p>
+  <h2>Start your own museum.<br>Or give it to someone<br>so they can found theirs.</h2>
+  <p class="sec-txt">The interactive book and a few tools you may find useful.</p>
+
+  <div class="productos">
+    <div class="producto">
+      <img class="prod-portada" src="/museodelocotidiano/images/portada-libro.jpg" width="800" height="1123" alt="Cover of the book" loading="lazy">
+      <p class="prod-nom">The book</p>
+      <p class="prod-desc">The interactive book. Galleries, rooms and display cases: a complete tour of the everyday.</p>
+      <p class="prod-plat">Amazon</p>
+      <a href="https://www.amazon.com/dp/B0HKW1N6TM" class="btn" target="_blank" rel="noopener">Buy on Amazon →</a>
+      <a href="https://amzn.to/4yfrbul" class="prod-alt" target="_blank" rel="noopener" lang="es">Edición en español →</a>
+    </div>
+    <div class="producto">
+      <div class="prod-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><rect x="6" y="6" width="12" height="12"/><circle cx="3" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="3" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="21" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="21" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="21" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="8" cy="3" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="3" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="3" r="1.2" fill="currentColor" stroke="none"/><circle cx="8" cy="21" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="21" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="21" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+      <p class="prod-nom">Stamp punches</p>
+      <p class="prod-desc">To shape the pieces of your collection.</p>
+      <p class="prod-plat">Amazon.es · Temu</p>
+      <a href="/museodelocotidiano/troqueladoras.html" class="btn">See punches →</a>
+    </div>
+  </div>
+
+  <div class="vitrina-nota" style="margin-top:36px;">
+    <p>📐 About piece size</p>
+    <p>The display cases are designed for works up to <strong>1.5 inches (3.81 cm)</strong>. But you run the museum: you can use several cases for one piece, put several works in the same case, or ignore the limits altogether.</p>
+  </div>
+</section>
+
+<div class="div div-mid">The Postal Correspondence Club</div>
+
+<!-- CLUB POSTAL -->
+<section id="club">
+  <p class="sec-eyebrow">The Postal Correspondence Club</p>
+  <h2>A museum doesn’t exist<br>without its visitors</h2>
+  <p class="sec-txt">The Postal Correspondence Club is a space for sharing small fragments of the everyday by ordinary mail.</p>
+  <p class="sec-txt">Flyers, cuttings, papers, stamps, small pieces and anything that could become part of someone else’s museum.</p>
+  <p class="club-frase">A piece in your museum today<span>may travel tomorrow to someone else’s.</span></p>
+
+  <div class="club-layout">
+    <div>
+      <p class="club-subhead" style="font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--n);margin-bottom:16px;">When you join the Club</p>
+      <div class="club-bloques">
+        <div class="club-bloque">
+          <p>✉ Welcome letter</p>
+          <p>You receive a handwritten letter from the Museum, a few pieces of everyday art and a stamp for your first letter <span style="font-size:.88em;color:var(--g);">(the stamp is valid for mail sent from Spain)</span>.</p>
+        </div>
+        <div class="club-bloque">
+          <p>📮 To start exchanging</p>
+          <p>In that first letter you’ll find the addresses of two other members who also want to exchange letters. You decide whether to write, and to whom.</p>
+        </div>
+        <div class="club-bloque">
+          <p>📖 The Museum’s notebook</p>
+          <p>Your address is written by hand in the Museum’s paper correspondence notebook. No lists, no automated databases.</p>
+        </div>
+      </div>
+      <p class="club-cierre">100% analog. 100% free.<span>Joining costs nothing. And every exchange happens by post.</span></p>
+    </div>
+<form id="form-club" class="club-form" onsubmit="event.preventDefault();sendForm('form-club','msg-club')">
+      <input type="hidden" name="access_key" value="01a4b244-27c8-4ae9-b31d-7d05cd033c6b">
+      <input type="hidden" name="subject" value="Solicitud Club de Correspondencia Postal (EN)">
+      <h3>Apply to join the Club</h3>
+      <input type="text" name="nombre" placeholder="Your name">
+      <input type="text" name="direccion" placeholder="Full postal address">
+      <input type="text" name="ciudad" placeholder="City and country">
+      <textarea name="mensaje" placeholder="Tell us a little about your museum (optional)" rows="3"></textarea>
+      <button type="submit" class="btn-club" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;">Send request</button>
+      <div id="msg-club" class="form-msg" style="background:#E8F5E9;"></div>
+      <p class="club-nota">Your postal address will be handwritten in the museum’s correspondence notebook. It will only be shared with other club members, on paper. No automated database.</p>
+    </form>
+  </div>
+</section>
+
+<div style="background:var(--co);padding:0 88px 72px;" class="snail-wrap">
+  <details style="max-width:680px;border:1px solid #D4CEC4;background:var(--c);">
+    <summary style="padding:20px 28px;cursor:pointer;font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--n);list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;">
+      <span>✉️ 📮 &nbsp;Never received or answered a paper letter?</span>
+      <span style="font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--t);font-weight:400;flex-shrink:0;margin-left:16px;">Read me</span>
+    </summary>
+    <div style="padding:0 28px 32px;border-top:1px solid #D4CEC4;">
+
+      <p style="font-size:.88rem;color:var(--g);line-height:1.9;margin-top:20px;">A paper letter is a custom from other centuries that is still alive and working — even if some people don’t know it exists, or that it still works today.</p>
+
+      
+      <p style="font-size:.88rem;color:var(--g);line-height:1.9;margin-top:16px;">A letter is a message or a piece of paper you put inside an envelope. You can also add other papers, bits of card, cuttings or anything flat that fits — that’s exactly what we do in the club. You seal it, stick on a new stamp, write who it’s for and drop it in a post box. The postal service collects it, it travels by truck or plane, and a few days later a mail carrier delivers it to the recipient’s mailbox. No app, no website, no connection. One hundred percent analog.</p>
+
+      <p style="font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--n);margin-top:24px;margin-bottom:14px;">The envelope: front and back</p>
+
+      <!-- DIAGRAMA SOBRE - DOS CARAS -->
+      <div style="background:var(--co);border:1px solid #C4BEB4;padding:20px 24px;margin-bottom:18px;">
+
+        <p style="font-family:'Fraunces',serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t);margin-bottom:10px;">Front</p>
+        <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;display:block;margin-bottom:24px;">
+          <!-- Sobre limpio, sin líneas de doblez en la parte delantera -->
+          <rect x="10" y="10" width="400" height="190" rx="4" fill="#F5F0E8" stroke="#C4BEB4" stroke-width="1.5"/>
+
+          <!-- SELLO (arriba derecha) -->
+          <rect x="356" y="18" width="42" height="52" rx="2" fill="none" stroke="#C4614A" stroke-width="1.4"/>
+          <rect x="360" y="22" width="34" height="44" rx="1" fill="#C4614A" opacity=".12"/>
+          <text x="377" y="43" text-anchor="middle" font-family="serif" font-size="8" fill="#C4614A" font-weight="bold">STAMP</text>
+          <text x="377" y="56" text-anchor="middle" font-family="serif" font-size="7" fill="#9E4A38">here</text>
+          <text x="377" y="196" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#C4614A">↑ stamp</text>
+
+          <!-- DESTINATARIO (centro) -->
+          <rect x="110" y="85" width="210" height="100" rx="2" fill="none" stroke="#9A918A" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="215" y="106" text-anchor="middle" font-family="serif" font-size="8.5" fill="#6E6860" font-style="italic">Recipient</text>
+          <text x="215" y="122" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9A918A">Full name</text>
+          <text x="215" y="135" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9A918A">Street, number, apt.</text>
+          <text x="215" y="148" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9A918A">Postcode, City</text>
+          <text x="215" y="161" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9A918A">Country</text>
+          <text x="215" y="196" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#9A918A">↑ recipient’s address</text>
+        </svg>
+
+        <p style="font-family:'Fraunces',serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t);margin-bottom:10px;">Back</p>
+        <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;display:block;">
+          <rect x="10" y="10" width="400" height="190" rx="4" fill="#F5F0E8" stroke="#C4BEB4" stroke-width="1.5"/>
+          <!-- Solapa triangular de cierre -->
+          <polygon points="10,10 410,10 210,105" fill="#EDE7D9" stroke="#C4BEB4" stroke-width="1.2"/>
+          <text x="215" y="58" text-anchor="middle" font-family="serif" font-size="8" fill="#9A918A" font-style="italic">flap</text>
+
+          <!-- REMITE dentro del triángulo -->
+          <rect x="108" y="18" width="205" height="68" rx="2" fill="none" stroke="#C4614A" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="210" y="36" text-anchor="middle" font-family="serif" font-size="8.5" fill="#C4614A" font-style="italic">SENDER (you)</text>
+          <text x="210" y="51" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9E4A38">Your full name</text>
+          <text x="210" y="63" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9E4A38">Your full address</text>
+          <text x="215" y="196" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#C4614A">↑ your address, in case it can’t be delivered</text>
+        </svg>
+      </div>
+
+      <p style="font-size:.86rem;color:var(--g);line-height:1.85;margin-bottom:12px;"><strong style="color:var(--n);">The return address</strong> is your name and address on the back, on the flap. If the letter can’t be delivered — because the address is wrong or the person has moved — the post office sends it back to you instead of losing it.</p>
+
+      <p style="font-size:.86rem;color:var(--g);line-height:1.85;margin-bottom:12px;"><strong style="color:var(--n);">The stamp</strong> goes in the top right corner of the front. No stamp, no journey. You can buy stamps at any post office (in Spain, also at tobacconists, the “estancos”) — ask for a domestic letter stamp, or an international one if it’s going abroad.</p>
+
+      <p style="font-size:.86rem;color:var(--t);line-height:1.85;margin-bottom:20px;font-style:italic;">When you join the club we give you a stamp — write to whoever you like: the museum, another club member, or someone in your life you’d like to tell about what you’re collecting. No strings attached.</p>
+
+      <p style="font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--n);margin-bottom:8px;">How long does it take?</p>
+      <p style="font-size:.86rem;color:var(--g);line-height:1.85;margin-bottom:20px;">Within Spain: usually 2 to 5 days. There’s no delivery notification — it simply arrives one day. That uncertainty is part of the charm.</p>
+
+      <p style="font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--n);margin-bottom:8px;">About the postal service</p>
+      <p style="font-size:.86rem;color:var(--g);line-height:1.9;">Postal services exist in practically every country in the world. It’s a physical network — trucks, mail carriers, mailboxes, offices — that carries things from one place to another without any digital step. Like a very cheap mini-parcel: like the letters the bank sends, except a person sends it.</p>
+
+      <p style="font-size:.9rem;color:var(--t);font-style:italic;margin-top:20px;font-family:'Fraunces',serif;">The first letter you receive and send is one of those things you never forget.</p>
+    </div>
+  </details>
+</div>
+
+<div class="div">Contact</div>
+
+<!-- CONTACTO -->
+<section id="contacto" style="background:var(--co);">
+  <p class="sec-eyebrow">Contact</p>
+  <h2>Any questions?</h2>
+  <p class="sec-txt">Write to us about the book, the club or anything else you need.</p>
+  <form id="form-contacto" class="contact-form" onsubmit="event.preventDefault();sendForm('form-contacto','msg-contacto')">
+    <input type="hidden" name="access_key" value="01a4b244-27c8-4ae9-b31d-7d05cd033c6b">
+    <input type="hidden" name="subject" value="Consulta (EN) — Museo de lo Cotidiano">
+    <input type="text" name="nombre" placeholder="Your name">
+    <input type="email" name="email" placeholder="Your email">
+    <p style="font-size:.78rem;color:var(--g);margin-top:-6px;">If you’d like a reply, leave us your email.</p>
+    <textarea name="mensaje" rows="4" placeholder="Your message"></textarea>
+    <button type="submit" class="btn" style="width:fit-content;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;">Send message</button>
+    <div id="msg-contacto" class="form-msg"></div>
+  </form>
+</section>
+
+<!-- GALERÍAS DEL LIBRO — OCULTAS POR AHORA (contenido conservado para una fase futura) -->
+<section id="galerias" style="background:var(--co);display:none">
+  <p class="sec-eyebrow">Plano del Museo</p>
+  <h2>Siete galerías.<br>Un recorrido propio.</h2>
+  <p class="sec-txt">Botánica, Zoológica, Cercana, Visual, Códigos, Viaje, Horizonte. Cada galería con sus salas. Cada sala, una colección distinta.</p>
+  <div class="plano-wrap">
+    <img src="/museodelocotidiano/images/plano-museo.jpg" width="1400" height="902" alt="Plano del Museo de lo Cotidiano — Recorrido" loading="lazy">
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;">
+    <div style="background:var(--c);padding:36px 40px;border-left:3px solid var(--t);grid-column:1/-1;">
+      <p style="font-family:'Fraunces',serif;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--t);margin-bottom:14px;">Galería Horizonte</p>
+      <p style="font-family:'Fraunces',serif;font-size:1.15rem;font-style:italic;line-height:1.75;color:var(--n);max-width:720px;">Las salas de la Galería Horizonte están pensadas como un espacio aún más libre y abierto.</p>
+      <p style="font-size:.95rem;line-height:1.85;color:var(--g);margin-top:16px;max-width:720px;">Aquí pueden reunirse piezas de un tema concreto — abanicos, trenes, papeles de regalo, Halloween, entradas, tickets, sellos, barcos, otoño, Navidad, pegatinas de la fruta o recuerdos de un viaje —, pero también fragmentos que no encuentren lugar en otras galerías.</p>
+      <p style="font-size:.95rem;line-height:1.85;color:var(--g);margin-top:12px;max-width:720px;">Estas salas pueden construirse a partir de intereses, asociaciones, recuerdos o pequeños hallazgos y curiosidades. No necesitan seguir una clasificación fija: algunas nacen de una idea concreta y otras van tomando forma con el tiempo.</p>
+      <p style="font-family:'Fraunces',serif;font-size:1rem;font-style:italic;color:var(--t);margin-top:20px;">A veces, ciertas piezas terminan encontrando aquí su lugar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Museo de lo Cotidiano</span>
+  <div style="display:flex;gap:20px;align-items:center;">
+    <a href="https://www.instagram.com/museo_de_lo_cotidiano" target="_blank" rel="noopener" title="Instagram" style="color:#A09890;transition:color .2s;" onmouseover="this.style.color='#C4614A'" onmouseout="this.style.color='#A09890'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://www.tiktok.com/@museo_de_lo_cotidiano" target="_blank" rel="noopener" title="TikTok" style="color:#A09890;transition:color .2s;" onmouseover="this.style.color='#C4614A'" onmouseout="this.style.color='#A09890'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg></a>
+    <a href="https://www.facebook.com/elmuseodelocotidiano" target="_blank" rel="noopener" title="Facebook" style="color:#A09890;transition:color .2s;" onmouseover="this.style.color='#C4614A'" onmouseout="this.style.color='#A09890'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+    <a href="https://www.pinterest.com/museodelocotidiano/" target="_blank" rel="noopener" title="Pinterest" style="color:#A09890;transition:color .2s;" onmouseover="this.style.color='#C4614A'" onmouseout="this.style.color='#A09890'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20l4-9"/><path d="M10.7 14c.44 1.26 1.43 2 2.55 2c2.07 0 3.75-1.55 3.75-4a5 5 0 1 0-9.7 1.7"/><circle cx="12" cy="12" r="9"/></svg></a>
+    <a href="https://www.youtube.com/channel/UCN6xu9mvNKu-EFVj63wbiMQ" target="_blank" rel="noopener" title="YouTube" style="color:#A09890;transition:color .2s;" onmouseover="this.style.color='#C4614A'" onmouseout="this.style.color='#A09890'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="4"/><path d="M10 9l5 3l-5 3z"/></svg></a>
+  </div>
+  <span>This site contains Amazon affiliate links. If you buy through them, we earn a small commission at no extra cost to you.</span>
+  <a href="mailto:museodelocotidiano@outlook.com">museodelocotidiano@outlook.com</a>
+</footer>
+
+
+<script>
+/* IDIOMA: recordar la elección al pulsar ES / EN */
+document.querySelectorAll('[data-lang]').forEach(function(a){
+  a.addEventListener('click', function(){ try{ localStorage.setItem('museo-idioma', a.dataset.lang); }catch(e){} });
+});
+
+/* MENÚ MÓVIL ACCESIBLE */
+(function(){
+  var btn = document.getElementById('btn-menu');
+  var menu = document.getElementById('nav-mobile');
+  if(!btn || !menu) return;
+  function abrir(v){
+    menu.classList.toggle('open', v);
+    btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+    btn.setAttribute('aria-label', v ? 'Close menu' : 'Open menu');
+  }
+  btn.addEventListener('click', function(){
+    abrir(!menu.classList.contains('open'));
+  });
+  menu.addEventListener('click', function(e){
+    if(e.target.tagName === 'A') abrir(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && menu.classList.contains('open')){
+      abrir(false); btn.focus();
+    }
+  });
+  document.addEventListener('click', function(e){
+    if(menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) abrir(false);
+  });
+})();
+
+/* CARRUSELES — flechas de escritorio sobre scroll nativo */
+(function(){
+  document.querySelectorAll('.carrusel').forEach(function(car){
+    var botones = document.querySelectorAll('[data-car="' + car.id + '"]');
+    function paso(){
+      var t = car.querySelector('.carrusel > *');
+      if(!t) return car.clientWidth;
+      var gap = parseFloat(getComputedStyle(car).columnGap || getComputedStyle(car).gap) || 0;
+      return t.getBoundingClientRect().width + gap;
+    }
+    var barra = car.parentNode.querySelector('.carrusel-nav');
+    function estado(){
+      var max = car.scrollWidth - car.clientWidth - 2;
+      /* si todo cabe en pantalla no es un carrusel: se ocultan las flechas */
+      if(barra) barra.style.display = max > 2 ? '' : 'none';
+      botones.forEach(function(b){
+        var dir = parseInt(b.dataset.dir, 10);
+        b.disabled = dir < 0 ? car.scrollLeft <= 2 : car.scrollLeft >= max;
+      });
+    }
+    botones.forEach(function(b){
+      b.addEventListener('click', function(){
+        car.scrollBy({left: paso() * parseInt(b.dataset.dir, 10), behavior: 'smooth'});
+      });
+    });
+    car.addEventListener('scroll', estado, {passive: true});
+    window.addEventListener('resize', estado);
+    /* teclado: flechas izquierda/derecha cuando el carrusel tiene el foco */
+    car.addEventListener('keydown', function(e){
+      if(e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      e.preventDefault();
+      car.scrollBy({left: paso() * (e.key === 'ArrowRight' ? 1 : -1), behavior: 'smooth'});
+    });
+    estado();
+  });
+})();
+
+/* FORMULARIO ENVIAR MI MUSEO */
+function toggleFormMuseo() {
+  var w = document.getElementById('form-museo-wrap');
+  var tarjeta = document.getElementById('expo-invitacion');
+  if (!w) return;
+  var open = w.style.display !== 'none';
+  w.style.display = open ? 'none' : 'block';
+  if (tarjeta) tarjeta.classList.toggle('abierta', !open);
+  if (!open) w.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+async function sendFormMuseo() {
+  var form = document.getElementById('form-museo');
+  var msg = document.getElementById('msg-museo');
+  var fileInput = form.querySelector('input[type="file"]');
+  msg.style.display = 'none';
+
+  /* Validar tamaño: máx 5 MB */
+  if (fileInput.files[0] && fileInput.files[0].size > 5 * 1024 * 1024) {
+    msg.className = 'form-msg err';
+    msg.textContent = 'The image must not exceed 5 MB.';
+    msg.style.display = 'block';
+    return;
+  }
+
+  var data = new FormData(form);
+  try {
+    var res = await fetch('https://api.web3forms.com/submit', {method:'POST', body:data});
+    var json = await res.json();
+    if (json.success) {
+      msg.className = 'form-msg ok';
+      msg.textContent = 'Sent! Thank you for sharing your Museum.';
+      form.reset();
+    } else {
+      msg.className = 'form-msg err';
+      msg.textContent = 'Something went wrong. Please try again.';
+    }
+  } catch(e) {
+    msg.className = 'form-msg err';
+    msg.textContent = 'Connection error. Please try again.';
+  }
+  msg.style.display = 'block';
+}
+
+async function sendForm(formId, msgId) {
+  const form = document.getElementById(formId);
+  const msg = document.getElementById(msgId);
+  const data = new FormData(form);
+  msg.style.display = 'none';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {method:'POST', body:data});
+    const json = await res.json();
+    if(json.success) {
+      msg.className = 'form-msg ok';
+      msg.textContent = 'Message sent! We’ll get back to you soon.';
+      form.reset();
+    } else {
+      msg.className = 'form-msg err';
+      msg.textContent = 'Something went wrong. Please try again.';
+    }
+  } catch(e) {
+    msg.className = 'form-msg err';
+    msg.textContent = 'Connection error. Please try again.';
+  }
+  msg.style.display = 'block';
+}
+</script>
+
+</body>
+</html>
+
